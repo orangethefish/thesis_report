@@ -105,4 +105,23 @@ Mỗi kỹ thuật Data Augmentation được áp dụng riêng biệt, tạo ra
 
 Việc tăng kích thước tập dữ liệu huấn luyện thông qua Data Augmentation giúp cải thiện khả năng tổng quát hóa của mô hình, giảm thiểu hiện tượng overfitting và tăng cường độ chính xác của mô hình trên dữ liệu mới.
 \subsubsection{Transfer learning}
+Một cách cải thiện hiệu suất của mô hình là sử dụng \textit{Transfer learning}. Transfer learning là một kỹ thuật học máy mà mô hình được huấn luyện trước trên một tập dữ liệu lớn và sau đó được sử dụng để giải quyết một bài toán mới. Nhóm sử dụng một tập dữ liệu có tên là "DU-ASL-DATA-GLOVE-DB" được công bố trên trang web \href{https://figshare.com/articles/dataset/ASL-Sensor-Dataglove-Dataset_zip/20031017?file=35776586}{Figshare}. Tập dữ liệu này chứa dữ liệu về ngôn ngữ ký hiệu Mỹ (ASL) được thu thập từ cảm biến găng tay thông minh.
+
+\begin{itemize}
+    \item \textbf{Tổng quan:} Đây là một tập dữ liệu được thu thập bởi 1 nhóm sinh viên chuyên ngành kỹ thuật sinh học tại Ấn Độ, họ thu thập dữ liệu từ 25 người khác nhau (19 nam và 6 nữ). Mỗi người thực hiện 40 cử chỉ khác nhau (26 cử chỉ trong bảng chữ cái và 14 từ). Dữ liệu được thu thập từ cảm biến với tần số lấy mẫu 100Hz và mỗi cử chỉ có thời lượng 1.5 giây và được thực hiện 10 lần cho mỗi đối tượng.
+    \item \textbf{Thông tin phần cứng:} Dữ liệu được thu thập từ 5 cảm biến flex 2.2 inch SEN-10264 và 1 cảm biến IMU MPU6050.
+    \item \textbf{Tổ chức dữ liệu:} Dữ liệu được lưu trong 25 thư mục được đánh số từ 001 đến 025, mỗi thư mục chứa dữ liệu của một người. Mỗi thư mục chứa 40 file csv tương ứng với 40 cử chỉ khác nhau. Mỗi file csv chứa dữ liệu của 10 lần thực hiện cử chỉ. 
+    \item \textbf{Tiền xử lý:} Dữ liệu cần được xử lý để có thể phu hợp với mô hình của nhóm. Mô hình học máy nhóm sử dụng yêu cầu dữ liệu đầu vào phải có timestep là 250 và số chiều là 7. Do đó nhóm cần thực hiện 2 bước tiền xử lý chính:
+    \begin{itemize}
+        \item \textbf{Thay đổi tập dữ liệu} Vì tín hiệu ở cột thứ 4 được tính bằng tổng tín hiệu của cảm biến từ ngón áp út và ngón út, nhóm cần phải tính lại giá trị của cột này bằng cách tính tổng điện trở của f4 và f5 trong dataset. Nhóm cũng chỉ sử dụng giá trị từ flex sensor và cảm biến góc quay vì thiết bị không có cảm biến gia tốc.
+        \item \textbf{Upscaling dữ liệu:} Dữ liệu được thu thập với tần số lấy mẫu 100Hz với thời gian thực hiện cử chỉ là 1.5 giây. Điều đó có nghĩa là dữ liệu thu được có số lượng timestep là 150. Để phù hợp với mô hình nhóm sử dụng, nhóm cần phải upscaling dữ liệu lên 250 timestep. Kỹ thuật upscaling được sử dụng là nội suy tuyến tính.
+    \end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\linewidth]{Images/Improved methods/transfer_learning.png}
+        \caption{Dữ liệu sau khi chỉnh sửa}
+        \label{fig:interpolation}
+    \end{figure}
+    \item \textbf{Huấn luyện mô hình:} Mô hình được sử dụng là mô hình cải tiến mà nhóm đã giới thiệu ở trên. Mô hình được huấn luyện trên tập dữ liệu ASL. Weight của mô hình được lưu lại và sử dụng cho việc huấn luyện mô hình trên tập dữ liệu của nhóm.
+\end{itemize}
 \subsubsection{Sinh dữ liệu từ TimeGAN}

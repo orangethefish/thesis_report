@@ -166,7 +166,7 @@ Transfer learning là việc sử dụng kiến thức đã học từ một mi�
 
  \begin{figure}[H]
     \centering
-    \includegraphics[width=14cm]{Images/Theoretical basis/Transfer_Learning.png}
+    \includegraphics[width=10cm]{Images/Theoretical basis/Transfer_Learning.png}
 \caption{Transfer learning}
 \end{figure}
 
@@ -201,7 +201,7 @@ Transfer learning đã được ứng dụng thành công trong nhiều lĩnh v�
 
  \begin{figure}[H]
     \centering
-    \includegraphics[scale = 0.2]{Images/Theoretical basis/Possible-advantages-of-transfer-learning.png}
+    \includegraphics[scale = 0.5]{Images/Theoretical basis/Possible-advantages-of-transfer-learning.png}
 \caption{Lợi ích của Transfer Learning}
 \end{figure}
 
@@ -229,7 +229,7 @@ Self-attention hoạt động bằng cách tính toán mối quan hệ giữa c�
 
  \begin{figure}[H]
     \centering
-    \includegraphics[scale = 0.2]{Images/Theoretical basis/self-attention.jpg}
+    \includegraphics[scale = 1]{Images/Theoretical basis/self-attention.jpg}
 \caption{Self Attention}
 \end{figure}
 
@@ -237,31 +237,71 @@ Self-attention hoạt động bằng cách tính toán mối quan hệ giữa c�
 
 Có nhiều biến thể của self-attention, mỗi biến thể có những đặc điểm và ứng dụng riêng:
 
-* \textbf{Scaled Dot-Product Attention:} Đây là biến thể phổ biến nhất, được sử dụng trong Transformer. Nó tính toán attention weights dựa trên tích vô hướng của các vector biểu diễn.
-* \textbf{Multi-Head Attention:}  Biến thể này sử dụng nhiều "head" attention song song, mỗi head tập trung vào các khía cạnh khác nhau của dữ liệu.
-* \textbf{Additive Attention:} Biến thể này sử dụng một mạng nơ-ron để tính toán attention weights.
+\begin{itemize}
+    \item \textbf{Scaled Dot-Product Attention:} Đây là biến thể phổ biến nhất, được sử dụng trong Transformer. Nó tính toán attention weights dựa trên tích vô hướng của các vector biểu diễn.
+    \item \textbf{Multi-Head Attention:}  Biến thể này sử dụng nhiều "head" attention song song, mỗi head tập trung vào các khía cạnh khác nhau của dữ liệu.
+    \item \textbf{Additive Attention:} Biến thể này sử dụng một mạng nơ-ron để tính toán attention weights.
+\end{itemize}
 
 \subsubsection{Ứng dụng của Self-Attention}
 
 Self-attention đã được ứng dụng rộng rãi trong nhiều lĩnh vực:
 
-* \textbf{Xử lý ngôn ngữ tự nhiên:} 
-    * Dịch máy
-    * Tóm tắt văn bản
-    * Phân tích cảm xúc
-    * Hỏi đáp
-* \textbf{Thị giác máy tính:}
-    * Phân loại ảnh
-    * Nhận dạng đối tượng
-* \textbf{Các lĩnh vực khác:}
-    * Sinh học
-    * Âm nhạc
+\begin{itemize}
+    \item \textbf{Xử lý ngôn ngữ tự nhiên:} 
+    \begin{itemize}
+        \item Dịch máy
+        \item Tóm tắt văn bản
+        \item Phân tích cảm xúc
+        \item Hỏi đáp
+    \end{itemize}
+    \item \textbf{Thị giác máy tính:}
+    \begin{itemize}
+        \item Phân loại ảnh
+        \item Nhận dạng đối tượng
+    \end{itemize}
+    \item \textbf{Các lĩnh vực khác:}
+    \begin{itemize}
+        \item Sinh học
+        \item Âm nhạc
+    \end{itemize}
+\end{itemize}
 
 \subsubsection{Lợi ích của Self-Attention}
 
-* \textbf{Nắm bắt được các phụ thuộc dài hạn:} Self-attention có thể nắm bắt được mối quan hệ giữa các phần tử cách xa nhau trong chuỗi, điều mà các mô hình RNN truyền thống gặp khó khăn.
-* \textbf{Tính toán song song hiệu quả:} Self-attention có thể được tính toán song song, giúp tăng tốc độ huấn luyện và suy luận.
-* \textbf{Khả năng diễn giải tốt:} Attention weights cung cấp thông tin về các phần tử quan trọng trong chuỗi, giúp hiểu rõ hơn cách mô hình đưa ra quyết định.
+\begin{itemize}
+    \item \textbf{Nắm bắt được các phụ thuộc dài hạn:} Self-attention có thể nắm bắt được mối quan hệ giữa các phần tử cách xa nhau trong chuỗi, điều mà các mô hình RNN truyền thống gặp khó khăn.
+    \item \textbf{Tính toán song song hiệu quả:} Self-attention có thể được tính toán song song, giúp tăng tốc độ huấn luyện và suy luận.
+    \item \textbf{Khả năng diễn giải tốt:} Attention weights cung cấp thông tin về các phần tử quan trọng trong chuỗi, giúp hiểu rõ hơn cách mô hình đưa ra quyết định.
+\end{itemize}
+
+\subsection{Nội suy tuyến tính (Linear Interpolation)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 1]{Images/Theoretical basis/linear_interpolation.png}
+    \caption{Nội suy tuyến tính}    
+\end{figure}
+
+Nội suy tuyến tính là một phương pháp ước tính giá trị của một hàm số tại một điểm chưa biết, dựa trên giá trị của hàm số tại hai điểm đã biết. 
+
+Giả sử ta có hai điểm dữ liệu $(x_1, y_1)$ và $(x_2, y_2)$, và ta muốn ước tính giá trị của hàm số $y = f(x)$ tại điểm $x$ nằm giữa $x_1$ và $x_2$. Nội suy tuyến tính giả định rằng hàm số $f(x)$ là một đường thẳng giữa hai điểm đã biết. 
+
+Công thức nội suy tuyến tính được cho bởi:
+
+$y = y_1 + \frac{(x - x_1)}{(x_2 - x_1)}(y_2 - y_1)$
+
+Trong lĩnh vực học máy, nội suy tuyến tính thường được sử dụng để tạo ra các điểm dữ liệu mới từ tập dữ liệu hiện có. Ví dụ, trong bài toán xử lý ảnh, nội suy tuyến tính có thể được sử dụng để phóng to hoặc thu nhỏ ảnh. 
+
+\subsubsection{Lợi ích của nội suy tuyến tính}
+\begin{itemize}
+    \item \textbf{Đơn giản:} Nội suy tuyến tính là một phương pháp đơn giản và dễ hiểu để ước lượng giá trị của một hàm số tại một điểm chưa biết.
+\end{itemize}
+
+\subsubsection{Hạn chế của nội suy tuyến tính}
+\begin{itemize}
+    \item \textbf{Giả định tuyến tính:} Nội suy tuyến tính giả định rằng hàm số là một đường thẳng giữa hai điểm đã biết, điều này có thể không phản ánh đúng mối quan hệ giữa các điểm dữ liệu.
+\end{itemize}
 
 \subsection{Generative Adversarial Networks (GANs)}
 
@@ -269,49 +309,58 @@ Generative Adversarial Networks (GANs) là một lớp mô hình học sâu mạ
 
  \begin{figure}[H]
     \centering
-    \includegraphics[scale = 0.2]{Images/Theoretical basis/GAN.png}
-\caption{Lợi ích của Transfer Learning}
+    \includegraphics[scale = 0.8]{Images/Theoretical basis/GAN.png}
+\caption{Generative Adversarial Networks (GANs)}
 \end{figure}
 
 \subsubsection{Kiến trúc và hoạt động của GANs}
 
-* \textbf{Generator:} Mạng nơ-ron này nhận vào một vector nhiễu ngẫu nhiên và cố gắng tạo ra dữ liệu giả mạo giống với dữ liệu thật.
-* \textbf{Discriminator:} Mạng nơ-ron này nhận vào dữ liệu (thật hoặc giả mạo) và cố gắng phân biệt giữa chúng.
-
+\begin{itemize}
+    \item \textbf{Generator:} Mạng nơ-ron này nhận vào một vector nhiễu ngẫu nhiên và cố gắng tạo ra dữ liệu giả mạo giống với dữ liệu thật.
+    \item \textbf{Discriminator:} Mạng nơ-ron này nhận vào dữ liệu (thật hoặc giả mạo) và cố gắng phân biệt giữa chúng.
+\end{itemize}
 Hai mạng này được huấn luyện đồng thời: generator cố gắng đánh lừa discriminator, trong khi discriminator cố gắng không bị đánh lừa. Quá trình huấn luyện này tạo ra một vòng lặp phản hồi, trong đó cả hai mạng đều cải thiện theo thời gian.
 
 \subsubsection{Các biến thể của GANs}
 
 Có nhiều biến thể của GANs, mỗi biến thể có những đặc điểm và ứng dụng riêng:
 
-* \textbf{Deep Convolutional GANs (DCGANs):} Sử dụng mạng nơ-ron tích chập để tạo ra hình ảnh chất lượng cao.
-* \textbf{Conditional GANs (cGANs):} Cho phép điều khiển quá trình tạo dữ liệu bằng cách cung cấp thông tin bổ sung (như nhãn lớp).
-* \textbf{CycleGANs:} Cho phép chuyển đổi dữ liệu từ miền này sang miền khác (ví dụ: chuyển đổi ảnh từ mùa hè sang mùa đông).
-* \textbf{Progressive Growing of GANs (PGGANs):}  Tạo ra hình ảnh có độ phân giải cao bằng cách tăng dần kích thước của mạng generator và discriminator.
-* \textbf{StyleGAN:} Tạo ra hình ảnh chân thực với khả năng kiểm soát các thuộc tính tinh tế.
-* \textbf{TimeGAN:} Tạo ra dữ liễu chuỗi thời gian mẫu từ tập dữ liệu đầu vào cho sẵn
+\begin{itemize}
+    \item \textbf{Deep Convolutional GANs (DCGANs):} Sử dụng mạng nơ-ron tích chập để tạo ra hình ảnh chất lượng cao.
+    \item \textbf{Conditional GANs (cGANs):} Cho phép điều khiển quá trình tạo dữ liệu bằng cách cung cấp thông tin bổ sung (như nhãn lớp).
+    \item \textbf{CycleGANs:} Cho phép chuyển đổi dữ liệu từ miền này sang miền khác (ví dụ: chuyển đổi ảnh từ mùa hè sang mùa đông).
+    \item \textbf{Progressive Growing of GANs (PGGANs):}  Tạo ra hình ảnh có độ phân giải cao bằng cách tăng dần kích thước của mạng generator và discriminator.
+    \item \textbf{StyleGAN:} Tạo ra hình ảnh chân thực với khả năng kiểm soát các thuộc tính tinh tế.
+    \item \textbf{TimeGAN:} Tạo ra dữ liễu chuỗi thời gian mẫu từ tập dữ liệu đầu vào cho sẵn
+\end{itemize}
 
 \subsubsection{Ứng dụng của GANs}
 
 GANs đã được ứng dụng trong nhiều lĩnh vực:
 
-* \textbf{Tạo hình ảnh:} Tạo ra hình ảnh chân thực của người, vật thể, cảnh quan,...
-* \textbf{Tạo dữ liệu:} Tạo ra dữ liệu tổng hợp cho các tác vụ học máy khác.
-* \textbf{Chỉnh sửa ảnh:}  Thay đổi các thuộc tính của ảnh (ví dụ: thêm nụ cười, thay đổi kiểu tóc).
-* \textbf{Siêu phân giải ảnh:} Tăng độ phân giải của ảnh.
-* \textbf{Phục hồi ảnh:} Khôi phục các phần bị thiếu hoặc bị hỏng của ảnh.
+\begin{itemize}
+    \item \textbf{Tạo hình ảnh:} Tạo ra hình ảnh chân thực của người, vật thể, cảnh quan,...
+    \item \textbf{Tạo dữ liệu:} Tạo ra dữ liệu tổng hợp cho các tác vụ học máy khác.
+    \item \textbf{Chỉnh sửa ảnh:}  Thay đổi các thuộc tính của ảnh (ví dụ: thêm nụ cười, thay đổi kiểu tóc).
+    \item \textbf{Siêu phân giải ảnh:} Tăng độ phân giải của ảnh.
+    \item \textbf{Phục hồi ảnh:} Khôi phục các phần bị thiếu hoặc bị hỏng của ảnh.
+\end{itemize}
 
 \subsubsection{Lợi ích và hạn chế của GANs}
 
 \textbf{Lợi ích:}
 
-* Khả năng tạo ra dữ liệu mới, đa dạng và chân thực.
-* Ứng dụng rộng rãi trong nhiều lĩnh vực.
+\begin{itemize}
+    \item Khả năng tạo ra dữ liệu mới, đa dạng và chân thực.
+    \item Ứng dụng rộng rãi trong nhiều lĩnh vực.
+\end{itemize}
 
 \textbf{Hạn chế:}
 
-* Huấn luyện GANs có thể khó khăn và không ổn định.
-* Đánh giá chất lượng của dữ liệu do GANs tạo ra có thể phức tạp.
+\begin{itemize}
+    \item Huấn luyện GANs có thể khó khăn và không ổn định.
+    \item Đánh giá chất lượng của dữ liệu do GANs tạo ra có thể phức tạp.
+\end{itemize}
 
 \subsection{Giới thiệu về thư viện Tensorflow}
 \indent TensorFlow là một thư viện mã nguồn mở được phát triển bởi Google, được sử dụng để xây dựng các mô hình học máy và mạng nơ-ron. TensorFlow sẽ giúp giải quyết các bài toán nhanh chóng và đơn giản hơn thông qua việc tạo các mô hình tính toán trong Machine Learning trên máy tính.

@@ -1,5 +1,5 @@
 *.zip
-
+*.pdf
 
 #Latex residues
 *.aux
