@@ -1,0 +1,240 @@
+\documentclass[a4paper]{article}
+\usepackage{a4wide,amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
+\usepackage[utf8]{vntex}
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{tabularray}
+\usepackage[utf8]{inputenc}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage{hyperref}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+%\usepackage{pstcol} 								% PSTricks with the standard color package
+
+\newtheorem{theorem}{{\bf Theorem}}
+\newtheorem{property}{{\bf Property}}
+\newtheorem{proposition}{{\bf Proposition}}
+\newtheorem{corollary}[proposition]{{\bf Corollary}}
+\newtheorem{lemma}[proposition]{{\bf Lemma}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{codingstyle}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\normalsize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2,
+  language=C
+}
+
+\lstset{style=codingstyle}
+
+
+\AtBeginDocument{\renewcommand*\contentsname{Contents}}
+\AtBeginDocument{\renewcommand*\refname{References}}
+%\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily Trường Đại học Bách Khoa - ĐHQG Hồ Chí Minh}\\
+		\textbf{\bf \ttfamily Khoa Khoa học và Kỹ thuật máy tính}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily ĐỒ ÁN TỐT NGHIỆP}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}}
+
+
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+ĐẠI HỌC QUỐC GIA TP.HỒ CHÍ MINH \\
+ĐẠI HỌC BÁCH KHOA \\
+KHOA KHOA HỌC VÀ KĨ THUẬT MÁY TÍNH
+\end{center}
+
+\vspace{1cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=3cm]{hcmut.png}
+\end{center}
+\end{figure}
+
+\vspace{1cm}
+
+\begin{center}
+\textbf{\Large ĐỒ ÁN TỐT NGHIỆP}\\
+\hrulefill \\
+\vspace{.3cm}
+\textbf{\Large Đề tài}\\
+\vspace{.3cm}
+\textbf{\Large THIẾT BỊ CHUYỂN ĐỔI NGÔN NGỮ KÝ HIỆU SANG GIỌNG NÓI SỬ DỤNG FLEX SENSORS KẾT HỢP VỚI HỌC MÁY
+ } \\
+\hrulefill
+\end{center}
+
+
+\vspace{3cm}
+
+\begin{table}[h]
+\begin{tabular}{rrl}
+\hspace{5 cm} & GVHD: & ThS. Trần Thanh Bình\\
+& &  ThS. Lê Trọng Nhân  \\
+& SVTH: & Lê Nhật Tiến - 1912196 \\
+& & Nguyễn Duy Hòa - 2010276  \\
+& & \\
+\end{tabular}
+\end{table}
+
+\begin{center}
+{\footnotesize TP. Hồ Chí Minh, tháng 11 năm 2024}
+\end{center}
+\end{titlepage}
+
+
+%\thispagestyle{empty}
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
+\newpage
+\section*{Lời cam đoan}
+\addcontentsline{toc}{section}{Lời cam đoan}
+
+\indent Chúng tôi xin cam đoan rằng những nội dung trình bày trong báo cáo luận văn này là công trình nghiên cứu của nhóm dưới sự hướng dẫn của thầy Trần Thanh Bình và thầy Lê Trọng Nhân. Nội dung và số liệu trong báo cáo không phải là bản sao chép từ bất kì báo cáo, tiểu luận nào có trước. Tất cả những sự giúp đỡ cho việc xây dựng bài báo cáo đều được trích dẫn và ghi nguồn đầy đủ, rõ ràng. Nếu không đúng sự thật, chúng tôi xin chịu mọi trách nhiệm trước các thầy, cô, và nhà trường
+
+\newpage
+\section*{Lời cảm ơn}
+\addcontentsline{toc}{section}{Lời cảm ơn}
+
+\indent Chúng tôi xin gửi lời cảm ơn sâu sắc nhất đến thầy Trần Thanh Bình và thầy Lê Trọng Nhân, những người đã tận tâm hướng dẫn và đồng hành cùng chúng tôi trong suốt quá trình thực hiện đề tài. Hai thầy không chỉ theo sát tiến độ mà còn nhiệt tình góp ý, chỉnh sửa những sai sót, giúp chúng em cải thiện và hoàn thiện công việc một cách hiệu quả hơn.
+
+\indent Sau một học kỳ miệt mài thực hiện, bên cạnh sự nỗ lực của từng cá nhân, sự chỉ dẫn tận tình của hai thầy là yếu tố quan trọng giúp chúng em hoàn thành đồ án đúng tiến độ và nâng cao chất lượng đề tài. 
+
+\indent Dù đã rất cố gắng, nhưng chắc chắn bài làm vẫn không tránh khỏi những thiếu sót. Chúng em rất mong nhận được sự góp ý, đóng góp quý báu từ quý thầy cô và các bạn để tiếp tục hoàn thiện hơn.
+
+\begin{center}
+{\footnotesize TP. Hồ Chí Minh, tháng 11 năm 2024}
+\end{center}
+
+\newpage
+\section*{Tóm tắt đồ án}
+\addcontentsline{toc}{section}{Tóm tắt đồ án}
+
+\indent Đồ án tốt nghiệp Kỹ thuật Máy tính của nhóm với đề tài "Thiết bị hỗ trợ chuyển đổi ngôn ngữ ký hiệu thành giọng nói sử dụng cảm biến uốn cong (flex sensors) và học máy" được thực hiện qua hai học kỳ. Mục tiêu của đề tài là phát triển một hệ thống nhận diện cử chỉ thông qua công nghệ học máy và cảm biến uốn cong, sau đó chuyển đổi cử chỉ thành giọng nói.
+
+\indent Cụ thể, nhóm sử dụng cảm biến uốn cong để theo dõi và đo lường sự chuyển động của các ngón tay. Dữ liệu từ cảm biến này được kết hợp với các cảm biến phụ trợ khác như cảm biến con quay gia tốc, từ đó phân tích và xây dựng một mô hình học máy dựa trên Long Short Term Memory (LSTM).
+
+\indent Nhóm đã tiến hành thu thập dữ liệu từ các cử chỉ thực tế và huấn luyện mô hình với tập dữ liệu này. Trong quá trình thực hiện, nhóm đã tinh chỉnh mô hình và cải tiến thiết kế hệ thống bằng các kỹ thuật nâng cao, giúp tăng độ chính xác của hệ thống trong việc nhận diện cử chỉ và chuyển đổi thành giọng nói một cách hiệu quả.
+
+
+\newpage
+\renewcommand*\contentsname{Mục lục}
+\tableofcontents
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Sections/01_ListOfImages}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/02_ListOfTable}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily ĐỒ ÁN TỐT NGHIỆP}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{Sections/03_Introduction}
+\newpage\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/04_TheoreticalBasis}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/05_SystemArchitecture}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/06_SystemImplementation}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/07_ImprovedMethods}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/07_ExperimentalResults}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/08_Conclusion}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/09_References}
+
+\end{document}
+

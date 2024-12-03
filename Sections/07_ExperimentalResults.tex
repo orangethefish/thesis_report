@@ -1,0 +1,42 @@
+\section{Kết quả thực nghiệm}
+\subsection{Mô hình ban đầu}
+\subsection{Sau khi cải tiến}
+
+
+Data được thu thập sau đó được phân bổ với tỉ lệ 80-20, 80\% lượng data được sử dụng để train mô hình, 20\% được sử dụng để kiểm tra kết quả sau khi huấn luyện
+
+Chúng ta không thể đánh giá kỹ năng của mô hình chỉ từ một lần đánh giá.
+Nguyên nhân là mạng nơ-ron là ngẫu nhiên, có nghĩa là một cấu hình mô hình cụ thể khác nhau sẽ xuất hiện khi đào tạo cùng một cấu hình mô hình trên cùng một dữ liệu. Điều này là một đặc trưng của mạng, vì nó mang lại khả năng thích ứng cho mô hình, nhưng yêu cầu một quá trình đánh giá mô hình phức tạp hơn.
+
+Chúng ta sẽ lặp lại việc đánh giá mô hình nhiều lần, sau đó tóm tắt hiệu suất của mô hình qua từng lần chạy đó. chúng ta có thể gọi hàm evaluate\_model() tổng cộng 5 lần.Điều này sẽ dẫn đến một tập hợp các điểm đánh giá mô hình cần được tóm tắt.'\\
+
+\begin{lstlisting}
+>#1: 90.058
+>#2: 85.918
+>#3: 90.974
+>#4: 89.515
+>#5: 90.159
+>#6: 91.110
+>#7: 89.718
+>#8: 90.295
+>#9: 89.447
+>#10: 90.024
+
+[90.05768578215134, 85.91788259246692, 90.97387173396675, 89.51476077366813, 90.15948422124194, 91.10960298608755, 89.71835765184933, 90.29521547336275, 89.44689514760775, 90.02375296912113]
+
+Accuracy: 89.722% (+/-1.371)
+
+\end{lstlisting}
+Cuối cùng, mẫu các điểm đánh giá được in ra, tiếp theo là giá trị trung bình và độ lệch chuẩn. Chúng ta có thể thấy rằng mô hình đã hoạt động tốt, đạt được độ chính xác phân loại khoảng 89,7\% khi được huấn luyện trên dữ liệu thô, với độ lệch chuẩn là khoảng 1,3. Đây là một kết quả tốt ! 
+\subsection{}
+
+Dựa vào số động tác thực hiện và số lần mô hình xác định chính xác, cho thấy mô hình chỉ đạt kết quả khoảng 70\%: \\
+
+Kết quả này được thực hiện như sau:\\
+\begin{itemize}
+    \item Một động tác được duy trì trong 2.4s bằng với số frame dữ liệu được gửi đến mô hình để dự đoán
+    \item Thực hiện động tác với label 7 và 9 vì hai động tác này có data frame khá tương đồng nhau,  trong 1 phút bằng với 25 lần mô hình gửi đến model kết quả cho thấy chỉ dự đoán được 18 lần với label 7 và 17 lần với label 9
+\end{itemize}
+Những động tác có data frame khác biệt nhau ví dự như label 5 và label 0 cho ra kết quả khá chính xác, lên đến hơn 90\% dựa vào cách tính trên
+
+
