@@ -1,15 +1,19 @@
 \section{Kết luận}
 \subsection{Kết quả đạt được}
 
-\indent Trong giai đoạn 2 này, nhóm đã thành công trong việc triển khai một sản phẩm tích hợp flexsensor và cảm biến gia tốc tốc, kết hợp với Arduino Lilypad, để thu thập dữ liệu từ chuyển động của các ngón tay. Sản phẩm này đóng vai trò quan trọng trong việc cung cấp dữ liệu đầu vào cho quá trình huấn luyện và dự đoán của mô hình LSTM.
+\indent Nhóm đã xây dựng được một hệ thống có thể chuyển đổi cử chỉ của một người khuyết tật thành giọng nói thông qua việc thu thập dữ liệu từ 5 cảm biến flex sensor và cảm biến gia tốc góc. Găng tay được thiết kế để thu thập dữ liệu từ các cử chỉ của người dùng và gửi dữ liệu đến máy tính thông qua giao tiếp Bluetooth. Dữ liệu sau đó được xử lý và đưa vào mô hình học để dự đoán cử chỉ và chuyển đổi thành giọng nói. Găng tay có vai trò quan trọng trong việc thu thập dữ liệu và dự đoán cử chỉ của người dùng.
 
-\indent Bên cạnh đó, nhóm đã hiện thực một mô hình LSTM có khả năng dự đoán các hành động được định nghĩa trước, thông qua quá trình huấn luyện trên tập dữ liệu chứa các mẫu dữ liệu liên quan đến các hành động đó. Điều này đặt nền tảng cho tính linh hoạt và độ chính xác của hệ thống, giúp nó có khả năng hiểu và phản ứng đáng tin cậy đối với các cử chỉ của người sử dụng.
+
+\indent Trong giai đoạn 2 này với các cải thiện mà nhóm đã thực hiện, nhìn chung, việc khả năng dự đoán của thiết bị có sự cải thiện rõ rệt nhất sau khi thay đổi mô hình để huấn luyện dữ liệu với khác biệt thực tế có thể lên đến 20\%. Các kỹ thuật khác cũng giúp mô hình cải thiện độ chính xác nhưng không nhiều như việc thay đổi mô hình. Việc kết hợp mô hình mới với dữ liệu đã làm giàu cũng giúp mô hình cải thiện độ chính xác. Tuy nhiên, có một số kỹ thuật không mang lại hiệu quả như mong đợi.
 
 \subsection{Hạn chế của hệ thống}
-\indent Một trong những thách thức lớn nhất là khả năng mô hình LSTM trực tiếp dự đoán từ dữ liệu thu thập được. Điều này xuất phát từ sự phức tạp và đa dạng của dữ liệu, đòi hỏi quá trình xử lý để tạo ra đầu ra dự đoán chính xác và hiệu quả.
+\indent Một trong những hạn chế lớn nhất của hệ thống là hiện tại việc chuyển đổi từ cử chỉ thành giọng nói chỉ đang được ghi nhận bằng một tay phải. Thực tế, việc giao tiếp bằng ngôn ngữ ký hiệu không chỉ dừng lại ở hai tay mà còn bao gồm cả cơ thể. 
 
-\indent Quá trình xử lý dữ liệu kéo dài thời gian giữa việc thu thập dữ liệu và quá trình dự đoán. Điều này có thể tạo ra một khoảng thời gian trễ không mong muốn, ảnh hưởng đến tính linh hoạt và phản ứng nhanh chóng được mong đợi từ hệ thống.
+\indent Hơn nữa, việc sử dụng máy tính làm trung gian cho việc nhận và dự đoán dữ liệu cử chỉ cũng là một hạn chế lớn. Điều này làm việc áp dụng hệ thống vào thực tế trở nên không khả thi.
 
-\indent Hệ thống đã đạt được những sự hoạt động ổn định nhất định, tuy nhiên mô hình vẫn đưa ra các dự đoán sai ở các động tác có tính tương tự nhau. chỉ đạt được khoảng 70\%
 \subsection{Hướng cải tiến và phát triển}
-\indent Đối mặt với những thách thức và giới hạn đã được đề cập trước đó, mục tiêu quan trọng trong giai đoạn tiếp theo của chúng tôi là nâng cao mô hình LSTM để có khả năng dự đoán trực tiếp từ dữ liệu thu thập được. Điều này đòi hỏi sự tập trung vào việc tối ưu hóa và cải thiện quá trình xử lý dữ liệu, nhằm giảm thiểu độ trễ và tăng cường tính linh hoạt của hệ thống.
+\indent Với những hạn chế và thách thức mà nhóm vừa nêu, có một số hướng phát triển mà nhóm có thể hướng đến:
+\begin{itemize}
+    \item Xây dựng thêm 1 găng tay cho tay trái để thu thập dữ liệu từ cả hai tay và có thể kết hợp sử dụng thêm cảm biến gia tốc cho găng tay. Việc các cử chỉ tăng lên thì cần có thêm dữ liệu từ một tay mới hay một cảm biến khác để đảm bảo mô hình vẫn có thể dự đoán chính xác.
+    \item Xây dựng một hệ thống nhúng với pin nhỏ gọn để có thể gắn trên người và có thể xử lý dữ liệu cử chỉ. Điều này giúp loại bỏ việc sử dụng máy tính. Mọi dữ liệu thu thập từ găng tay sẽ được xử lý và chuyển đổi cử chỉ đó thành âm thanh tương ứng. Việc xây dựng hệ thống nhúng với pin như vậy cũng đề ra thách thức về việc tiết kiệm năng lượng và xử lý dữ liệu một cách hiệu quả. Việc đề ra một mô hình mới tuy tiêu hao nhiều điện năng nhưng vẫn có thể đảm bảo chất lượng đàu ra hay việc chọn loại pin nào thiết kê hệ thống như thế nào để vẫn có thể đảm bảo tính nhỏ gọn và nhẹ nhàng cũng là một thách thức lớn 
+\end{itemize}

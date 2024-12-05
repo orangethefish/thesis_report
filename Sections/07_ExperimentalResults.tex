@@ -110,6 +110,116 @@ Sau khi chuyển weight của mô hình đã được huấn luyện với tập
 
 Kết quả của mô hình transfer learning ở tập test cũng cho thấy mô hình có thể dự đoán đúng nhiều hơn so với mô hình mới ban đầu. Tuy nhiên sự khác biệt là không lớn (<10 mẫu) và kiểm nghiệm thực tế cũng cho thấy sai khác <5\% giữa mô hình mới và mô hình transfer learning.
 
+
+\subsection{TimeGAN}
+
+Khác với Data augmentation, dữ liệu do TimeGAN tạo ra có chất lượng không tốt. Trực quan hóa dữ liệu đã được TimeGAN tạo ra cho thấy dữ liệu đã được TimeGAN tạo ra không giống với dữ liệu ban đầu. Với cả 7 đặc trưng dữ liệu tạo ra có nét tương đồng với dữ liệu gốc nhưng những mẫu tạo ra không giống với dữ liệu gốc. Từ hình ảnh có thể thấy rõ rằng dữ liệu tạo ra bởi TimeGAN không có tính biến thiên như dữ liệu gốc.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/TimeGAN_f1.png}
+    \caption{Trực quan hóa dữ liệu của đặc trưng 'f1'}
+    \label{fig:timegan_data_f1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/TimeGAN_f2.png}
+    \caption{Trực quan hóa dữ liệu của đặc trưng 'f2'}
+    \label{fig:timegan_data_f2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/TimeGAN_f3.png}
+    \caption{Trực quan hóa dữ liệu của đặc trưng 'f3'}
+    \label{fig:timegan_data_f3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/TimeGAN_f4.png}
+    \caption{Trực quan hóa dữ liệu của đặc trưng 'f4'}
+    \label{fig:timegan_data_f4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/TimeGAN_gx.png}
+    \caption{Trực quan hóa dữ liệu của đặc trưng 'gx'}
+    \label{fig:timegan_data_gx}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/TimeGAN_gy.png}
+    \caption{Trực quan hóa dữ liệu của đặc trưng 'gy'}
+    \label{fig:timegan_data_gy}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/TimeGAN_gz.png}
+    \caption{Trực quan hóa dữ liệu của đặc trưng 'gz'}
+    \label{fig:timegan_data_gz}
+\end{figure}
+
+Khi xét đến MSE, độ ổn định của các đặc trưng qua các mẫu là không đều nhau, một số đặc trưng sẽ có sai số toàn phương trung bình cao hơn so với các đặc trưng khác.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/MSE_xinchao.png}
+    \caption{MSE của nhãn Xin Chào}
+    \label{fig:timegan_mse}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/MSE_toi.png}
+    \caption{MSE của nhãn Tôi}
+    \label{fig:timegan_mse}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/MSE_ten.png}
+    \caption{MSE của nhãn Tên}
+    \label{fig:timegan_mse}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/MSE_tien.png}
+    \caption{MSE của nhãn Tiến}
+    \label{fig:timegan_mse}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Improvement results/MSE_tambiet.png}
+    \caption{MSE của nhãn Tạm Biệt}
+    \label{fig:timegan_mse}
+\end{figure}
+
+Kết quả huấn luyện cho thấy mô hình TimeGAN không ổn định cũng như là có loss cao hơn so với mô hình với dữ liệu ban đầu. Kết quả của mô hình TimeGAN trên tập test không cho thấy khác biệt nhiều so với mô hình với dữ liệu ban đầu.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/Improvement results/TimeGAN_loss.png}
+    \caption{Loss của mô hình TimeGAN}
+    \label{fig:timegan_loss}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/Improvement results/TimeGAN_confusionmatrix.png}
+    \caption{Confusion matrix của mô hình TimeGAN}
+    \label{fig:timegan_confusion_matrix}
+\end{figure}
+
+Kiểm nghiệm thực tế cũng cho thấy mô hình TimeGAN không cải thiện được độ chính xác của mô hình so với dữ liệu ban đầu, nếu có khác biệt thì cũng không lớn.
+
+
 % Data được thu thập sau đó được phân bổ với tỉ lệ 80-20, 80\% lượng data được sử dụng để train mô hình, 20\% được sử dụng để kiểm tra kết quả sau khi huấn luyện
 
 % Chúng ta không thể đánh giá kỹ năng của mô hình chỉ từ một lần đánh giá.
