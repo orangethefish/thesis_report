@@ -1,12 +1,15 @@
 \section{Cơ sở lý thuyết}
 \subsection{Giới thiệu về học máy(Machine learning)}
-\indent Học máy (machine learning) là một lĩnh vực của trí tuệ nhân tạo liên quan đến việc nghiên cứu và xây dựng các kĩ thuật cho phép các hệ thống "học" tự động từ dữ liệu để giải quyết những vấn đề cụ thể. Lịch sử học máy bắt đầu từ những năm 1950 với các nỗ lực đầu tiên để mô phỏng khả năng học của con người thông qua máy tính. Tuy nhiên, cho đến đầu thập kỷ 21, học máy mới trở nên phổ biến và mạnh mẽ nhờ vào sự tiến bộ của phần cứng và khả năng tính toán.
-
-\indent Trong thập kỷ gần đây, sự phát triển của các thuật toán học máy, kết hợp với dữ liệu lớn và sức mạnh tính toán ngày càng tăng, đã đưa học máy vào tầm tay của nhiều người và ứng dụng rộng rãi trong nhiều lĩnh vực, bao gồm nhận dạng hình ảnh, ngôn ngữ tự nhiên và IoT (Internet of Things).
+\indent Học máy (Machine Learning) là một nhánh quan trọng của trí tuệ nhân tạo (AI), tập trung vào việc nghiên cứu và phát triển các kỹ thuật cho phép hệ thống tự động học hỏi từ dữ liệu để giải quyết các vấn đề cụ thể mà không cần lập trình rõ ràng từng bước. Khái niệm học máy đã xuất hiện từ những năm 1950, khi các nhà khoa học lần đầu tiên thử nghiệm mô phỏng khả năng học tập của con người bằng máy tính. Tuy nhiên, phải đến đầu thế kỷ 21, học máy mới thực sự bùng nổ nhờ sự tiến bộ vượt bậc trong công nghệ phần cứng và khả năng tính toán.
+\indent Trong những năm gần đây, học máy đã được thúc đẩy mạnh mẽ bởi sự phát triển của các thuật toán tiên tiến, sự gia tăng của dữ liệu lớn (Big Data) và sức mạnh xử lý của các hệ thống tính toán hiện đại. Những yếu tố này đã làm cho học máy trở thành công cụ không thể thiếu trong nhiều lĩnh vực như nhận dạng hình ảnh, xử lý ngôn ngữ tự nhiên, y tế, tài chính, và đặc biệt là IoT (Internet of Things). Với khả năng thích ứng linh hoạt và hiệu quả, học máy không chỉ mang lại giá trị thực tiễn to lớn mà còn mở ra những cơ hội mới trong nghiên cứu và ứng dụng công nghệ.
 
 \subsection{Giới thiệu về Mạng nơ-ron hồi quy(RNN)}
 \subsubsection{Tổng quan}
-\indent Mạng nơ-ron hồi quy (RNN) là một mô hình học sâu được đào tạo để xử lý và chuyển đổi đầu vào dữ liệu tuần tự thành đầu ra dữ liệu tuần tự cụ thể. Dữ liệu tuần tự là dữ liệu, chẳng hạn như từ, câu hoặc dữ liệu chuỗi thời gian, trong đó các thành phần tuần tự tương quan với nhau dựa trên ngữ nghĩa phức tạp và quy tắc cú pháp. RNN là một hệ thống phần mềm gồm nhiều thành phần được kết nối với nhau theo cách con người thực hiện chuyển đổi dữ liệu tuần tự, chẳng hạn như dịch văn bản từ ngôn ngữ này sang ngôn ngữ khác. Phần lớn RNN đang được thay thế bằng trí tuệ nhân tạo (AI) dựa trên công cụ biến đổi và các mô hình ngôn ngữ lớn (LLM), hiệu quả hơn nhiều trong việc xử lý dữ liệu tuần tự.
+\indent Mạng nơ-ron hồi quy (Recurrent Neural Networks - RNN) là một loại mạng nơ-ron chuyên biệt trong học sâu, được thiết kế để xử lý dữ liệu tuần tự. Các chuỗi dữ liệu này thường mang tính liên kết, như các câu văn, chuỗi thời gian hay tín hiệu âm thanh. Đặc trưng của RNN là khả năng duy trì thông tin từ các bước trước đó trong chuỗi, nhờ vào các vòng hồi tiếp trong cấu trúc mạng. Điều này cho phép RNN mô hình hóa các mối quan hệ phức tạp và phụ thuộc giữa các thành phần trong dữ liệu.
+
+\indent RNN hoạt động bằng cách sử dụng cùng một tập tham số trên mọi bước thời gian, tái sử dụng chúng để giảm thiểu số lượng tham số cần học. Tuy nhiên, khả năng này cũng đi kèm với thách thức, khi mạng phải đối mặt với các vấn đề như khó khăn trong việc lưu trữ thông tin xa hoặc triệt tiêu/đột biến gradient trong quá trình học.
+
+\indent Hiện nay, mặc dù RNN vẫn được sử dụng cho nhiều bài toán liên quan đến chuỗi dữ liệu, nhưng nó đang dần được thay thế bởi các mô hình hiệu quả hơn như các mô hình dựa trên cơ chế Attention hoặc các mạng Transformer.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/RNN-unrolled.png}
@@ -14,12 +17,12 @@
     \label{fig:enter-label}
 \end{figure}
 
-\subsection{Một số loại nơ-ron hồi quy}
-\indent RNN thường có đặc trưng là kiến trúc một-một: một chuỗi đầu vào được liên kết với một đầu ra. Tuy nhiên, bạn có thể điều chỉnh linh hoạt thành các cấu hình khác nhau cho các mục đích cụ thể. Sau đây là một số loại RNN phổ biến.
+\subsubsection{Một số loại mạng nơ-ron hồi quy}
+\indent Mạng nơ-ron hồi quy (RNN) có thể được cấu hình theo nhiều cách khác nhau tùy thuộc vào loại bài toán cần giải quyết. Dưới đây là các dạng cấu trúc RNN phổ biến:
 \begin{itemize}
-    \item \textbf{Một-nhiều:} Loại RNN này dẫn một đầu vào đến một số đầu ra. Loại này tạo điều kiện cho các ứng dụng ngôn ngữ như chú thích hình ảnh bằng cách tạo một câu từ một từ khóa duy nhất.
-    \item \textbf{Nhiều-nhiều:} Mô hình sử dụng nhiều đầu vào để dự đoán nhiều đầu ra. Ví dụ: bạn có thể tạo một công cụ dịch ngôn ngữ bằng RNN, với khả năng phân tích câu và cấu trúc chính xác các từ trong một ngôn ngữ khác.
-    \item \textbf{Nhiều-một:} Một số đầu vào được ánh xạ đến một đầu ra. Loại này rất hữu ích trong các ứng dụng như phân tích cảm xúc, trong đó mô hình dự đoán cảm xúc của khách hàng như tích cực, tiêu cực và trung lập từ lời chứng thực đầu vào.
+    \item \textbf{Một-nhiều (One-to-Many):} Trong cấu hình này, từ một đầu vào duy nhất, mạng tạo ra một chuỗi các đầu ra. Loại này thường được ứng dụng trong các bài toán như tạo chú thích hình ảnh, nơi mạng nơ-ron tạo ra một câu hoàn chỉnh dựa trên một hình ảnh đầu vào duy nhất.
+    \item \textbf{Nhiều-một (Many-to-One):} Đây là cấu trúc mà mạng nhận một chuỗi dữ liệu đầu vào và đưa ra một đầu ra duy nhất. Một ví dụ điển hình là phân tích cảm xúc, nơi RNN nhận một đoạn văn bản và dự đoán cảm xúc tổng quát (như tích cực, tiêu cực hoặc trung tính).
+    \item \textbf{Nhiều-một (Many-to-Many):} Mạng này xử lý nhiều đầu vào và tạo ra nhiều đầu ra tương ứng. Đây là cấu trúc phổ biến trong các ứng dụng dịch máy, nơi mạng nhận một câu ở ngôn ngữ nguồn và chuyển đổi nó thành một câu tương ứng ở ngôn ngữ đích.
 \end{itemize}
 
 \begin{figure}[H]
@@ -30,32 +33,33 @@
 \end{figure}
 \subsubsection{Vấn đề phụ thuộc xa của RNN}
 
-\indent Một điểm nổi bật của RNN chính là ý tưởng kết nối các thông tin phía trước để dự đoán cho hiện tại. Việc này tương tự như ta sử dụng các cảnh trước của bộ phim để hiểu được cảnh hiện thời. Nếu mà RNN có thể làm được việc đó thì chúng sẽ cực kì hữu dụng, tuy nhiên liệu chúng có thể làm được không? Câu trả lời là còn tùy.
+\indent Một trong những đặc điểm nổi bật của mạng nơ-ron hồi quy (RNN) là khả năng tận dụng thông tin từ các bước trước trong chuỗi dữ liệu để dự đoán các bước tiếp theo. Điều này tương tự như cách con người sử dụng bối cảnh từ các đoạn văn trước để hiểu một đoạn văn hiện tại. Tuy nhiên, khả năng này của RNN không phải lúc nào cũng hiệu quả và còn phụ thuộc vào khoảng cách giữa thông tin cần thiết và thông tin hiện tại.
 
-\indent Đôi lúc ta chỉ cần xem lại thông tin vừa có thôi là đủ để biết được tình huống hiện tại. Ví dụ, ta có câu: “các đám may trên bầu trời” thì ta chỉ cần đọc tới “các đám may trên bầu” là đủ biết được chữ tiếp theo là “trời” rồi. Trong tình huống này, khoảng cách tới thông tin có được cần để dự đoán là nhỏ, nên RNN hoàn toàn có thể học được.
+\indent Trong các trường hợp đơn giản, khi khoảng cách giữa dữ liệu cần ghi nhớ và thông tin hiện tại là ngắn, RNN có thể hoạt động tốt. Ví dụ, khi đọc câu "Các đám mây trên bầu trời...", thông tin về cụm từ "bầu" ngay lập tức gợi ý từ "trời". Đây là một dạng phụ thuộc ngắn hạn mà RNN có thể xử lý dễ dàng.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/RNN-shorttermdepdencies.png}
     \caption{Phụ thuộc ngắn hạn trên RNN}
     \label{fig:enter-label}
 \end{figure}
-\indent Nhưng trong nhiều tình huống ta buộc phải sử dụng nhiều ngữ cảnh hơn để suy luận. Ví dụ, dự đoán chữ cuối cùng trong đoạn: “I grew up in France… I speak fluent French.”. Rõ ràng là các thông tin gần (”I speak fluent”) chỉ có phép ta biết được đằng sau nó sẽ là tên của một ngôn ngữ nào đó, còn không thể nào biết được đó là tiếng gì. Muốn biết là tiếng gì, thì ta cần phải có thêm ngữ cảnh “I grew up in France” nữa mới có thể suy luận được. Rõ ràng là khoảng cách thông tin lúc này có thể đã khá xa rồi.
+\indent Tuy nhiên, khi cần đến các mối quan hệ phức tạp hơn với khoảng cách xa, RNN bắt đầu gặp khó khăn. Chẳng hạn, trong câu "Tôi lớn lên ở Pháp... Tôi nói tiếng Pháp rất lưu loát", thông tin gần như "Tôi nói tiếng..." không đủ để xác định đó là ngôn ngữ nào. Việc suy luận đúng cần dựa vào thông tin ở câu trước đó, "Tôi lớn lên ở Pháp". Khi khoảng cách giữa dữ liệu cần nhớ và thông tin hiện tại tăng lên, RNN thường mất khả năng ghi nhớ và học hiệu quả.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/RNN-longtermdependencies.png}
     \caption{Phụ thuộc dài hạn trên RNN}
     \label{fig:enter-label}
 \end{figure}
-\indent Thật không may là với khoảng cách càng lớn dần thì RNN bắt đầu không thể nhớ và học được nữa.
+\indent Nguyên nhân chính là do hiện tượng triệt tiêu gradient (vanishing gradient), khiến cho các tín hiệu từ các bước trước đó bị yếu dần trong quá trình lan truyền ngược. Điều này khiến RNN không thể lưu giữ được thông tin dài hạn, gây ảnh hưởng nghiêm trọng đến hiệu quả xử lý của mạng.
+
 
 \subsection{Giói thiệu mô hình Long-short term memmory(LTSM)}
 \subsubsection{Giới thiệu tổng quan}
 
-\indent Mạng bộ nhớ dài - ngắn (Long Short Term Memory networks), thường được gọi là LSTM - là một dạng đặc biệt của RNN, nó có khả năng học được các phụ thuộc xa. LSTM được giới thiệu bởi Hochreiter \& Schmidhuber vào năm 1997, và sau đó đã được cải tiến và phổ biến bởi rất nhiều người trong ngành. Chúng hoạt động cực kì hiệu quả trên nhiều bài toán khác nhau nên dần đã trở nên phổ biến như hiện nay.
+\indent Long Short-Term Memory (LSTM) là một loại mạng nơ-ron hồi quy (RNN) đặc biệt được thiết kế để giải quyết vấn đề phụ thuộc xa trong dữ liệu tuần tự. LSTM lần đầu tiên được giới thiệu bởi Hochreiter và Schmidhuber vào năm 1997 và sau đó đã được cải tiến bởi nhiều nhà nghiên cứu khác, giúp nó trở thành một công cụ quan trọng trong lĩnh vực học sâu.
 
-\indent LSTM được thiết kế để tránh được vấn đề phụ thuộc xa (long-term dependency). Việc nhớ thông tin trong suốt thời gian dài là đặc tính mặc định của chúng, chứ ta không cần phải huấn luyện nó để có thể nhớ được. Tức là ngay nội tại của nó đã có thể ghi nhớ được mà không cần bất kì can thiệp nào.
+\indent Khác với RNN truyền thống, LSTM có khả năng lưu trữ thông tin trong một khoảng thời gian dài hơn nhờ vào cấu trúc độc đáo với các cổng điều khiển thông minh. Những cổng này bao gồm cổng quên, cổng đầu vào và cổng đầu ra, cho phép mô hình lựa chọn giữ lại hay loại bỏ thông tin một cách có chọn lọc. Điều này giúp LSTM khắc phục được các hạn chế như triệt tiêu hoặc bùng nổ gradient, vốn là vấn đề phổ biến trong RNN tiêu chuẩn.
 
-\indent Mọi mạng hồi quy đều có dạng là một chuỗi các mô-đun lặp đi lặp lại của mạng nơ-ron. Với mạng RNN chuẩn, các mô-dun này có cấu trúc rất đơn giản, thường là một tầng tanh. LSTM cũng có kiến trúc dạng chuỗi như vậy, nhưng các mô-đun trong nó có cấu trúc khác với mạng RNN chuẩn. Thay vì chỉ có một tầng mạng nơ-ron, chúng có tới 4 tầng tương tác với nhau một cách rất đặc biệt.
+\indent LSTM hoạt động hiệu quả trên nhiều bài toán khác nhau, từ xử lý ngôn ngữ tự nhiên, dự đoán chuỗi thời gian đến nhận dạng giọng nói và video. Chính sự linh hoạt và khả năng xử lý dữ liệu tuần tự dài hạn này đã khiến LSTM trở thành một lựa chọn phổ biến trong các ứng dụng học sâu.
 
 \begin{figure}[H]
     \centering
@@ -70,10 +74,10 @@
 \caption{Diễn giải các kí hiệu trong đồ thị}
 \end{figure}
 
-\indent 
+\indent Mạng LSTM được thiết kế với mục đích giải quyết vấn đề phụ thuộc xa trong RNN bằng cách sử dụng một thành phần đặc biệt gọi là ô trạng thái (cell state). Ô trạng thái này hoạt động như một đường dẫn thẳng xuyên suốt chuỗi dữ liệu, giúp truyền tải thông tin mà không bị mất mát quá nhiều qua thời gian. Điều này giúp LSTM có thể nhớ được thông tin trong khoảng thời gian dài mà không gặp phải vấn đề triệt tiêu gradient.
 
 \begin{itemize}
-    \item Ý tưởng chính của LSTM là thành phần ô trạng thái (cell state) được thể hiện qua đường chạy ngang qua đỉnh đồ thị như hình vẽ bên dưới:
+    \item Ô trạng thái (cell state) được thể hiện qua đường chạy ngang qua đỉnh đồ thị như hình vẽ bên dưới:
     \begin{figure}[H]
         \centering
         \includegraphics[width=14cm]{Images/Architecture/LSTM3-C-line.png}
@@ -109,7 +113,7 @@
 \indent Bước tiếp theo chúng ta sẽ quyết định loại thông tin nào sẽ được lưu trữ trong ô trạng thái. Bước này bao gồm 2 phần. Phần đầu tiên là một tầng ẩn của hàm sigmoid được gọi là tầng cổng vào (input gate layer) quyết định giá trị bao nhiêu sẽ được cập nhật. Tiếp theo, tầng ẩn hàm tanh sẽ tạo ra một véc tơ của một giá trị trạng thái mới 
  mà có thể được thêm vào trạng thái. Tiếp theo kết hợp kết quả của 2 tầng này để tạo thành một cập nhật cho trạng thái.
 
- \indent Trong ví dụ của mô hình ngôn ngữ, chúng ta muốn thêm loại của một chủ ngữ mới vào ô trạng thái để thay thế phần trạng thái cũ muốn quên đi.
+\indent Trong ví dụ của mô hình ngôn ngữ, chúng ta muốn thêm loại của một chủ ngữ mới vào ô trạng thái để thay thế phần trạng thái cũ muốn quên đi.
 
 \begin{figure}[H]
     \centering
@@ -140,22 +144,21 @@
 \end{figure}
 \subsubsection{Ưu và nhược điểm của mô hình LSTM}
 
-\begin{enumerate}[-]
-    \item Ưu điểm
-    \begin{itemize}
-        \item LSTM được thiết kế để xử lý dữ liệu chuỗi và giữ thông tin từ quá khứ, giúp nó phù hợp cho nhiều loại dự đoán chuỗi như ngôn ngữ tự nhiên, dự đoán chuỗi thời gian, v.v.
-        \item LSTM có khả năng học và giữ lại thông tin lâu dài, giúp chúng phát hiện và theo dõi các mối quan hệ phức tạp trong dữ liệu dài hạn.
-        \item LSTM sử dụng cổng quên (forget gate) để kiểm soát việc giữ và quên thông tin, giúp giảm hiện tượng triệt tiêu gradient, vấn đề thường gặp trong các mô hình RNN.
-        \item Có thể kết hợp nhiều lớp LSTM để tạo thành các mô hình học sâu phức tạp hơn, linh hoạt trong việc xử lý nhiều loại dữ liệu và nhiều mức độ phức tạp.
-    \end{itemize}
-    \item  Nhược điểm
-    \begin{itemize}
-        \item Mô hình LSTM có khả năng tính toán khá phức tạp, đặc biệt khi được sử dụng trong các mô hình lớn với nhiều tham số.
-        \item Do tính toán phức tạp, việc huấn luyện mô hình LSTM có thể mất nhiều thời gian, đặc biệt là khi làm việc với dữ liệu lớn.
-        \item Mô hình LSTM có nguy cơ cao về overfitting, đặc biệt khi kích thước dữ liệu huấn luyện ít và mô hình quá phức tạp.
-        \item Mặc dù LSTM giảm vấn đề triệt tiêu gradient, nhưng không giải quyết hoàn toàn vấn đề gradient exploding.
-    \end{itemize}
-\end{enumerate}
+\textbf{Ưu điểm}
+\begin{itemize}
+    \item LSTM được thiết kế đặc biệt để giải quyết vấn đề phụ thuộc dài hạn trong dữ liệu tuần tự. Nhờ vào ô trạng thái và cơ chế các cổng, LSTM có khả năng lưu trữ thông tin trong thời gian dài mà không bị mất mát như các mạng RNN truyền thống.
+    \item LSTM có thể học và theo dõi các mối quan hệ phức tạp giữa các phần tử trong chuỗi dữ liệu dài, giúp giải quyết các bài toán như dịch ngôn ngữ, nhận diện giọng nói và phân tích chuỗi thời gian.
+    \item Các cổng trong LSTM giúp giảm thiểu vấn đề triệt tiêu gradient, mà thường gặp phải trong các mạng RNN thông thường. Điều này cho phép mạng có thể học được thông tin từ các bước thời gian xa mà không gặp phải sự giảm sút mạnh mẽ của gradient.
+    \item LSTM có thể được sử dụng trong nhiều bài toán khác nhau và có thể kết hợp với các mô hình học sâu phức tạp để tạo thành các mạng học sâu đa lớp, linh hoạt và hiệu quả trong việc xử lý các loại dữ liệu khác nhau.
+\end{itemize}
+\textbf{Nhược điểm}
+\begin{itemize}
+    \item LSTM có cấu trúc phức tạp hơn so với các mạng nơ-ron hồi quy thông thường. Việc tính toán và tối ưu các tham số trong LSTM yêu cầu tài nguyên tính toán lớn và thời gian huấn luyện dài, đặc biệt là với các mô hình có số lớp lớn và dữ liệu phức tạp.
+    \item Do tính toán phức tạp và yêu cầu số lượng tham số lớn, quá trình huấn luyện mô hình LSTM có thể mất nhiều thời gian, đặc biệt là khi làm việc với bộ dữ liệu lớn.
+    \item LSTM dễ gặp phải vấn đề overfitting, đặc biệt là khi sử dụng với bộ dữ liệu huấn luyện nhỏ hoặc khi mạng quá phức tạp. Điều này có thể dẫn đến việc mô hình học quá chi tiết từ dữ liệu huấn luyện mà không có khả năng tổng quát tốt trên dữ liệu mới.
+    \item Mặc dù LSTM giải quyết được vấn đề triệt tiêu gradient, nhưng vấn đề gradient exploding (gradient phát triển quá mức) vẫn có thể xảy ra. Điều này có thể làm mô hình trở nên không ổn định, đặc biệt trong quá trình huấn luyện với các chuỗi dữ liệu rất dài.
+\end{itemize}
+
 \subsection{Giới thiệu về Transfer Learning}
 
 Transfer learning (học chuyển giao) là một kỹ thuật học máy trong đó một mô hình được phát triển cho một nhiệm vụ được sử dụng lại như là điểm khởi đầu cho một mô hình trên một nhiệm vụ thứ hai. Nói cách khác, kiến thức thu được trong khi giải quyết một vấn đề được áp dụng cho một vấn đề khác, nhưng có liên quan. 
@@ -314,23 +317,28 @@ GANs đã được ứng dụng trong nhiều lĩnh vực:
 * Đánh giá chất lượng của dữ liệu do GANs tạo ra có thể phức tạp.
 
 \subsection{Giới thiệu về thư viện Tensorflow}
-\indent TensorFlow là một thư viện mã nguồn mở được phát triển bởi Google, được sử dụng để xây dựng các mô hình học máy và mạng nơ-ron. TensorFlow sẽ giúp giải quyết các bài toán nhanh chóng và đơn giản hơn thông qua việc tạo các mô hình tính toán trong Machine Learning trên máy tính.
+\indent TensorFlow chính là thư viện mã nguồn mở cho machine learning nổi tiếng nhất thế giới, được phát triển bởi các nhà nghiên cứu từ Google. Việc hỗ trợ mạnh mẽ các phép toán học để tính toán trong machine learning và deep learning đã giúp việc tiếp cận các bài toán trở nên đơn giản, nhanh chóng và tiện lợi hơn nhiều. 
+
+\indent Các hàm được dựng sẵn trong thư viện cho từng bài toán cho phép TensorFlow xây dựng được nhiều neural network. Nó còn cho phép bạn tính toán song song trên nhiều máy tính khác nhau, thậm chí trên nhiều CPU, GPU trong cùng 1 máy hay tạo ra các dataflow graph - đồ thị luồng dữ liệu để dựng nên các model. Nếu bạn muốn chọn con đường sự nghiệp trong lĩnh vực A.I. này, nắm rõ những điều cơ bản của TensorFlow thực sự rất quan trọng.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/TensorFlow_logo.png}
     \caption{Thư viện Tensorflow}
     \label{fig:enter-label}
 \end{figure}
+
 \subsubsection{Nguyên lý hoạt động}
-\indent Tensorflow là một thư viện tính toán số và biểu diễn dữ liệu bằng cấu trúc đồ thị (graph) để tạo và huấn luyện các mô hình học máy. Các đồ thị này bao gồm các nút (nodes) và các cạnh (edges) được sử dụng để biểu diễn các phép tính và dữ liệu tương ứng trong mô hình. Một cách tổng quát, quá trình huấn luyện mô hình học máy trong TensorFlow trải qua các bước sau:
+\indent TensorFlow là một thư viện mã nguồn mở được thiết kế để thực hiện các phép tính số phức tạp thông qua cấu trúc đồ thị (graph). Cách hoạt động của TensorFlow dựa trên việc xây dựng và xử lý các mô hình học máy thông qua đồ thị tính toán, bao gồm các bước cơ bản sau:
 
 \begin{itemize}
-    \item \textbf{Xây dựng đồ thị tính toán:} Người dùng xác định cấu trúc đồ thị tính toán bằng cách khai báo các biến (variables) và các phép tính (operations) trong mô hình.
-    \item \textbf{Định nghĩa hàm mất mát:} Hàm mất mát (loss function) được định nghĩa để đo lường sự khác biệt giữa đầu ra dự đoán của mô hình và giá trị thực tế.
-    \item \textbf{Tối ưu hóa mô hình:} Quá trình tối ưu hóa được sử dụng để tìm ra các giá trị tham số tối ưu nhằm giảm thiểu hàm mất mát.
-    \item \textbf{Huấn luyện mô hình:} Dữ liệu huấn luyện được đưa vào mô hình để huấn luyện và cập nhật các giá trị tham số.
-    \item \textbf{Đánh giá mô hình:} Dữ liệu kiểm tra được sử dụng để đánh giá hiệu suất của mô hình.
-    \item \textbf{Sử dụng mô hình:} Mô hình đã huấn luyện được sử dụng để dự đoán và phân loại các dữ liệu mới.
+    \item \textbf{Xây dựng đồ thị tính toán:} Người dùng định nghĩa cấu trúc đồ thị, trong đó các nút (nodes) đại diện cho các phép tính toán (operations), và các cạnh (edges) biểu diễn luồng dữ liệu (dạng tensor) giữa các nút.
+    \item \textbf{Định nghĩa hàm mất mát:} Hàm mất mát được sử dụng để đo lường sự khác biệt giữa đầu ra dự đoán của mô hình và giá trị thực tế. Đây là thước đo chính để tối ưu hóa mô hình.
+    \item \textbf{Tối ưu hóa mô hình:} TensorFlow sử dụng các thuật toán tối ưu hóa như Gradient Descent để điều chỉnh các tham số trong mô hình, giảm giá trị của hàm mất mát.
+    \item \textbf{Huấn luyện mô hình:} Dữ liệu huấn luyện được đưa vào mô hình, các tham số được cập nhật lặp đi lặp lại qua nhiều vòng huấn luyện để tối ưu hóa kết quả dự đoán.
+    \item \textbf{Thực thi đồ thị qua Session:} Để thực hiện các phép tính, TensorFlow sử dụng Session, một môi trường chạy giúp thực thi đồ thị tính toán đã được xây dựng. Các session này cho phép TensorFlow phân phối các tác vụ tính toán trên nhiều thiết bị như CPU, GPU hoặc TPU.
+    \item \textbf{Đánh giá mô hình:} Sau khi huấn luyện, mô hình được kiểm tra trên tập dữ liệu kiểm định để đánh giá hiệu suất và khả năng tổng quát.
+    \item \textbf{Sử dụng mô hình:} Mô hình đã được huấn luyện có thể được sử dụng để dự đoán hoặc phân loại trên các dữ liệu mới, phù hợp với bài toán cụ thể.
 \end{itemize}
 \begin{figure}[H]
     \centering
@@ -343,49 +351,99 @@ GANs đã được ứng dụng trong nhiều lĩnh vực:
 \subsubsection{Thuộc tính cơ bản trong Tensorflow}
 \indent Về cơ bản thì các thuộc tính của TensorFlow bao gồm:
 \begin{itemize}
-    \item \textbf{Tensors:} Là đối tượng chính của TensorFlow, đại diện cho dữ liệu và kết quả tính toán. Tensors là một mảng đa chiều có các phần tử có cùng kiểu dữ liệu.
-    
+    \item \textbf{Tensors:} 
+    \begin{itemize}
+        \item Tensor là cấu trúc dữ liệu trung tâm trong TensorFlow, đại diện cho các mảng đa chiều với kiểu dữ liệu đồng nhất.
+        \item Tensor có thể mang giá trị là dữ liệu đầu vào, kết quả trung gian hoặc đầu ra của mô hình.
+    \end{itemize}
     \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/tensor.png}
         \caption{Hình ảnh minh họa của một tensor và so sánh với vector và ma trận.}
         \label{fig:enter-label}
     \end{figure}
-    \item \textbf{Phép tính toán(Operations):} Là các hoạt động được thực hiện trên các tensors. Một số hoạt động cơ bản của TensorFlow bao gồm phép cộng, trừ, nhân và chia.
-    \item \textbf{Biến(Variables):} Là các đối tượng được sử dụng để lưu trữ trạng thái thay đổi được trong quá trình huấn luyện mô hình. Variables có thể được khởi tạo với giá trị cố định hoặc giá trị ngẫu nhiên và có thể được cập nhật trong quá trình huấn luyện.
+    \item \textbf{Phép tính (Operations):} 
+    \begin{itemize}
+        \item TensorFlow thực hiện các phép tính trên tensors thông qua các operations (toán tử).
+        \item Các phép tính cơ bản bao gồm cộng, trừ, nhân, chia và nhiều phép toán học nâng cao khác.
+        \item Các operations này được biểu diễn dưới dạng các nút trong đồ thị tính toán.
+    \end{itemize}
+    \item \textbf{Biến(Variables):} 
+    \begin{itemize}
+        \item Biến được sử dụng để lưu trữ các giá trị có thể thay đổi trong quá trình huấn luyện mô hình, chẳng hạn như các tham số của mô hình.
+        \item Giá trị của biến có thể được khởi tạo và cập nhật trong suốt quá trình huấn luyện.
+    \end{itemize}
 
-    \item \textbf{Đồ thị(Graphs):} Là các biểu đồ đại diện cho các phép tính và các kết nối giữa chúng. Graphs được sử dụng để mô tả cấu trúc của mô hình học máy và tạo ra các tính toán hiệu quả trên nhiều thiết bị tính toán.
-
-    \item \textbf{Sessions:} Là một phiên làm việc TensorFlow, chứa tất cả các biến và phép tính cần thiết để thực hiện tính toán. Sessions được sử dụng để thực thi các tính toán trong TensorFlow.
+    \item \textbf{Đồ thị(Graphs):}
+    \begin{itemize}
+        \item Đồ thị là một biểu đồ tính toán biểu diễn mối quan hệ giữa các phép tính và dữ liệu.
+        \item TensorFlow sử dụng đồ thị để tối ưu hóa việc tính toán và triển khai mô hình trên nhiều thiết bị khác nhau, bao gồm CPU, GPU và TPU.
+    \end{itemize}
+    \item \textbf{Sessions:}
+    \begin{itemize}
+        \item Session là một phiên làm việc trong TensorFlow, nơi các phép tính trong đồ thị được thực thi.
+        \item Session quản lý các biến, phép tính và thực hiện quá trình huấn luyện hoặc dự đoán.
+    \end{itemize}
     \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/083018_0508_WhatisTenso2.png}
         \caption{Minh họa cho 1 graph, session, operation và variable.}
         \label{fig:enter-label}
     \end{figure}
-    \item \textbf{Placeholders:} Là các đối tượng được sử dụng để đại diện cho các tensors được cung cấp vào mô hình trong quá trình huấn luyện hoặc kiểm tra. Placeholders được sử dụng để đảm bảo rằng dữ liệu đầu vào có thể được cung cấp cho mô hình.
+    \item \textbf{Placeholders:} 
+    \begin{itemize}
+        \item Placeholders là các "nơi trống" trong đồ thị, được sử dụng để nhận dữ liệu đầu vào tại thời điểm chạy.
+        \item Điều này cho phép mô hình linh hoạt khi xử lý nhiều loại dữ liệu khác nhau trong quá trình huấn luyện hoặc kiểm tra.
+    \end{itemize}
 \end{itemize}
 
-Các thuộc tính này là những thành phần cơ bản của TensorFlow và cung cấp các công cụ cần thiết để xây dựng và huấn luyện các mô hình học máy hiệu quả.
+Các thuộc tính trên tạo thành nền tảng mạnh mẽ, giúp TensorFlow trở thành công cụ hàng đầu trong việc xây dựng, huấn luyện và triển khai các mô hình học máy hiện đại.
 
 \subsubsection{Ưu điểm của TensorFlow}
-\indent TensorFlow cung cấp các công cụ hỗ trợ cho việc xây dựng, huấn luyện và triển khai các mô hình học máy một cách linh hoạt và hiệu quả trên nhiều nền tảng khác nhau. TensorFlow sở hữu nhiều ưu điểm vượt trội như sau:
+
 \begin{itemize}
-    \item Tính linh hoạt: TensorFlow không chỉ hỗ trợ một loạt các thuật toán học máy và học sâu, mà còn cho phép người dùng tạo ra các mô hình học máy tùy chỉnh của riêng họ.
-    \item Khả năng mở rộng: TensorFlow có thể chạy trên nhiều nền tảng khác nhau, từ máy tính cá nhân đến các máy chủ lớn, và thậm chí là các thiết bị di động.
-    \item Hiệu suất cao: TensorFlow tận dụng tối đa sức mạnh của phần cứng bằng cách sử dụng đa luồng và tính toán song song.
-    \item Hỗ trợ cộng đồng: Với một cộng đồng người dùng lớn và tích cực, TensorFlow cung cấp nhiều tài liệu học tập và hỗ trợ từ cộng đồng.
+    \item \textbf{Tính linh hoạt cao:} 
+    \begin{itemize}
+        \item TensorFlow hỗ trợ nhiều loại mô hình học máy, từ học có giám sát đến học không giám sát và học tăng cường.
+        \item Người dùng có thể dễ dàng tùy chỉnh mô hình để phù hợp với các bài toán cụ thể, từ mạng nơ-ron đơn giản đến các kiến trúc phức tạp như CNN, RNN, hay Transformer.
+    \end{itemize}
+    \item \textbf{Khả năng mở rộng mạnh mẽ:} 
+    \begin{itemize}
+        \item TensorFlow được thiết kế để chạy trên nhiều nền tảng khác nhau, bao gồm máy tính cá nhân, máy chủ, GPU, TPU và thậm chí là các thiết bị di động.
+        \item Điều này giúp người dùng triển khai mô hình trên các môi trường khác nhau mà không cần thay đổi mã nguồn.
+    \end{itemize}
+    \item \textbf{Hiệu suất cao:} 
+    \begin{itemize}
+        \item TensorFlow tận dụng sức mạnh của phần cứng, hỗ trợ tính toán song song và tối ưu hóa hiệu suất thông qua GPU và TPU.
+        \item Công cụ này cũng cung cấp các thuật toán tối ưu hóa hiệu quả, giúp giảm thời gian huấn luyện mô hình.
+    \end{itemize}
+    \item \textbf{Cộng đồng hỗ trợ lớn:}
+    \begin{itemize}
+        \item TensorFlow có một cộng đồng người dùng toàn cầu lớn mạnh, cung cấp nhiều tài liệu học tập, hướng dẫn và giải pháp cho các vấn đề kỹ thuật.
+        \item Với nguồn tài liệu phong phú, người dùng dễ dàng tìm kiếm hỗ trợ từ cộng đồng hoặc các diễn đàn trực tuyến.
+    \end{itemize}
+    \item \textbf{Hỗ trợ triển khai mô hình:}
+    \begin{itemize}
+        \item TensorFlow cho phép triển khai mô hình trên nhiều nền tảng, từ máy tính cá nhân đến các ứng dụng di động, web và đám mây.
+        \item TensorFlow Lite giúp tối ưu hóa mô hình cho các thiết bị có hiệu năng hạn chế như điện thoại thông minh và thiết bị IoT.
+    \end{itemize}
+    \item \textbf{Thư viện phong phú:} 
+    \begin{itemize}
+        \item TensorFlow cung cấp nhiều thư viện mở rộng như TensorFlow.js (dành cho trình duyệt web), TensorFlow Lite (dành cho thiết bị di động) và TensorFlow Extended (hỗ trợ quy trình phát triển mô hình từ đầu đến cuối).
+        \item Người dùng có thể dễ dàng tích hợp các thư viện này vào dự án của mình.
+    \end{itemize}
 \end{itemize}
 
 \subsection{Giới thiệu về Arduino LilyPad}
-\indent LilyPad Arduino là một dạng bo mạch Arduino được thiết kế đặc biệt cho các thiết bị điện tử mặc được và e-textiles.  mạch có thể được may vào vải và gắn với các nguồn điện, cảm biến và actuator bằng chỉ dẫn điện.
+\indent Arduino LilyPad là một phiên bản đặc biệt của bo mạch Arduino, được thiết kế dành riêng cho các ứng dụng điện tử gắn vào vải (e-textiles) và thiết bị điện tử có thể đeo (wearables). Bo mạch này có cấu trúc phẳng, nhẹ và có thể được may trực tiếp vào trang phục hoặc phụ kiện bằng chỉ dẫn điện.
+
+\indent Arduino LilyPad được phát triển bởi Leah Buechley và SparkFun Electronics, dựa trên vi điều khiển ATmega168 hoặc ATmega328V. Đây là một giải pháp lý tưởng cho các dự án điện tử sáng tạo, nơi tính thẩm mỹ và tính linh hoạt trong thiết kế được ưu tiên.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/lilypad_main.jpg}
     \caption{Board mạch Arduino Lilypad}
     \label{fig:enter-label}
 \end{figure}
-\indent Arduino Lilypad được thiết kế và phát triển bởi Leah Buechley và SparkFun Electronics. Board mạch được thiết kế dựa trên chip điều khiển ATmega168V hoặc ATmega328V. Dưới đây là thông số kỹ thuật của  Arduino LilyPad:
 
 \begin{longtblr}[
   caption = {Thông số kỹ thuật của Arduino Lilypad},
@@ -410,22 +468,34 @@ Tần số xung            & 8 MHz
 
 
 
-\indent Một số ứng dụng của Arduino Lilypad:
+\indent Ứng dụng tiêu biểu của Arduino Lilypad:
 \begin{itemize}
-    \item \textbf{Quần áo thông minh:} Lilypad có thể được may vào trang phục kết hợp với các cảm biến khác tạo ra một bộ trang phục thông minh với các chức năng theo dõi thông số cơ thể.
-    \item \textbf{Thiết bị đeo tay thông minh:} Có thể dùng Lilypad như như một đồng hồ đeo tay thông minh, găng tay thông minh để theo dõi cử chỉ bàn tay, hoặc cử chỉ của cơ thể.
+    \item \textbf{Trang phục thông minh:} Arduino LilyPad có thể được sử dụng để theo dõi thông số cơ thể, điều khiển ánh sáng hoặc tích hợp cảm biến vào trang phục.
+    \item \textbf{Thiết bị đeo tay:} Nó có thể làm nền tảng cho các sản phẩm như găng tay thông minh, vòng tay theo dõi sức khỏe hoặc thiết bị điều khiển bằng cử chỉ.
+    \item \textbf{Dự án nghệ thuật:} LilyPad được sử dụng rộng rãi trong các dự án nghệ thuật sáng tạo, kết hợp công nghệ với thiết kế thẩm mỹ.
 \end{itemize}
+Với thiết kế nhỏ gọn và khả năng tích hợp cao, Arduino LilyPad là lựa chọn lý tưởng cho các nhà sáng tạo muốn kết hợp công nghệ với thời trang và các thiết bị cá nhân hóa.
 
 
 
-\subsection{Giới thiệu về cảm biến uốn cong(Flex sensor)}
+\subsection{Giới thiệu về Flex sensor}
 
 
 \subsubsection{Tổng quan} 
 
-\indent Cảm biến uốn cong (flex sensor) thực chất là một biến trở có khả năng thay đổi điện trở khi được uốn cong. Vì điện trở biến thiên tỷ lệ thuận trực tiếp với độ uốn cong, nên nó thường được gọi là Potentiometer Uốn Cong.
+\indent Flex Sensor (Cảm biến uốn cong) là một loại cảm biến đặc biệt hoạt động dựa trên nguyên tắc thay đổi điện trở khi bị uốn cong. Loại cảm biến này thường được sử dụng để đo lường và theo dõi mức độ uốn cong hoặc góc độ của một bề mặt hoặc cấu trúc.
 
-\indent Cảm biến uốn cong thường có hai kích thước phổ biến: 2.2 inch (5.588cm) và 4.5 inch (11.43cm).
+\indent Flex Sensor có thiết kế nhỏ gọn, linh hoạt và thường được sản xuất với hai kích thước phổ biến:
+\begin{itemize}
+    \item 2.2 inch (khoảng 5.588 cm)
+    \item 4.5 inch (khoảng 11.43 cm)
+\end{itemize}
+
+\indent Nhờ khả năng thay đổi giá trị điện trở tỷ lệ thuận với mức độ uốn cong, cảm biến này trở thành một giải pháp hiệu quả cho nhiều ứng dụng, đặc biệt trong các dự án liên quan đến thiết bị đeo, robot hoặc hệ thống điều khiển bằng cử chỉ.
+
+\indent Cảm biến uốn cong thường được sử dụng kết hợp với các mạch điện để chuyển đổi thay đổi điện trở thành tín hiệu điện áp, từ đó dễ dàng xử lý bằng các bộ vi điều khiển hoặc các hệ thống khác.
+
+\indent Với độ nhạy cao và tính linh hoạt, cảm biến uốn cong là một lựa chọn lý tưởng trong các dự án cần theo dõi chuyển động hoặc đo lường độ biến dạng của bề mặt.
 
 \begin{figure}[H]
     \centering
@@ -435,14 +505,12 @@ Tần số xung            & 8 MHz
 
 \subsubsection{Nguyên lý hoạt động}
 
+\indent Cảm biến uốn cong hoạt động dựa trên sự thay đổi điện trở của một lớp mực dẫn đặc biệt được phủ trên bề mặt cảm biến. Khi cảm biến bị uốn cong, các đặc tính của lớp mực dẫn thay đổi, dẫn đến sự biến đổi giá trị điện trở. Cơ chế hoạt động của cảm biến bao gồm các đặc điểm chính sau:
+
 \begin{enumerate}[-]
-    \item Mực dẫn trên cảm biến chính là một loại trở kháng. 
-    \begin{itemize}
-        \item Khi cảm biến thẳng, trở kháng này khoảng 25k.
-        \item Khi cảm biến được uốn cong, lớp mực dẫn bị căng, dẫn đến giảm diện tích tiết diện (hãy tưởng tượng như việc căng một sợi dây cao su) và tăng trở kháng. Ở góc uốn cong 90°, trở kháng này khoảng 100K.
-        \item Khi cảm biến được thẳng lại, trở kháng trở về giá trị ban đầu.
-    \end{itemize}
-    \item  Bằng cách đo trở kháng, ta có thể xác định được mức độ uốn cong của cảm biến.
+    \item \textbf{Trạng thái thẳng:} Khi cảm biến ở trạng thái thẳng, lớp mực dẫn không bị biến dạng, và giá trị điện trở thường dao động ở mức thấp, khoảng 25k$\Omega$.
+    \item \textbf{Trạng thái uốn cong:} Khi cảm biến bị uốn, lớp mực dẫn bị kéo căng, làm giảm diện tích tiếp xúc và tăng trở kháng của nó. Ở góc uốn cong 90°, giá trị điện trở có thể tăng lên đến 100k$\Omega$ hoặc hơn, tùy thuộc vào thiết kế và loại cảm biến.
+    \item \textbf{Trạng thái phục hồi:} Khi cảm biến được duỗi thẳng lại, lớp mực dẫn trở về trạng thái ban đầu, và giá trị điện trở cũng quay về mức trước đó.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -453,7 +521,7 @@ Tần số xung            & 8 MHz
 
 \subsubsection{Đọc giá trị}
 
-\indent Cách đơn giản nhất để đọc cảm biến uốn cong (Flex Sensor) là kết hợp với một trở kháng tĩnh để tạo thành một bộ chia điện áp, từ đó tạo ra một điện áp biến đổi có thể đọc được bởi bộ chuyển đổi tương tự sang số của vi điều khiển.
+\indent Việc đọc giá trị từ cảm biến uốn cong được thực hiện thông qua một mạch điện đơn giản, thường là mạch chia điện áp. Cảm biến uốn cong được kết hợp với một điện trở cố định để tạo ra một tín hiệu điện áp thay đổi, tương ứng với mức độ uốn cong của cảm biến. Điện áp này sau đó được đo và xử lý bởi bộ vi điều khiển hoặc mạch xử lý tín hiệu.
 
 \begin{figure}[H]
     \centering
@@ -468,10 +536,30 @@ Tần số xung            & 8 MHz
 
 \indent Trong trường hợp này, điện áp đầu ra giảm khi bán kính uốn cong tăng lên.
 \subsection{Giới thiệu về cảm biến con quay gia tốc}
-\indent Cảm biến gia tốc hoạt động dựa trên nguyên lý của lực quán tính, thường thông qua cấu trúc vi cơ điện tử (MEMS). Bên trong cảm biến, có một khối lượng nhỏ gọi là vi khối lượng, được gắn vào một khung bằng các lò xo siêu nhỏ. Khi cảm biến trải qua gia tốc, vi khối lượng này sẽ dịch chuyển do lực quán tính. Sự dịch chuyển này được chuyển đổi thành tín hiệu điện bằng cách sử dụng các phương pháp như cảm ứng điện dung, hiệu ứng piezoelectric hoặc cầu Wheatstone.\\
-\indent Nhờ vào cấu trúc và nguyên lý hoạt động tinh vi, cảm biến gia tốc có thể đo lường chính xác gia tốc theo nhiều trục, thường là ba trục (x, y, z), giúp cung cấp thông tin chi tiết về chuyển động và vị trí của vật thể trong không gian.
+\subsubsection{Tổng quan}
+\indent Cảm biến con quay gia tốc là một thiết bị được sử dụng để đo lường sự gia tốc của một vật thể theo các trục không gian. Thiết bị này hoạt động dựa trên nguyên lý của lực quán tính, thường kết hợp với công nghệ MEMS (Micro-Electro-Mechanical Systems) để đạt được độ chính xác cao trong kích thước nhỏ gọn.
+
+\indent Bên trong cảm biến, một khối lượng nhỏ được treo bằng các lò xo siêu nhỏ. Khi cảm biến chịu tác động của gia tốc, khối lượng này di chuyển do lực quán tính, và sự chuyển động này được chuyển đổi thành tín hiệu điện thông qua các cơ chế đo lường như:
+\begin{enumerate}[-]
+    \item \textbf{Hiệu ứng điện dung:} Sử dụng sự thay đổi điện dung giữa các phần tử trong cảm biến để đo mức độ di chuyển.
+    \item \textbf{Hiệu ứng áp điện (Piezoelectric):} Sử dụng các vật liệu tạo điện áp khi chịu lực cơ học để đo sự dịch chuyển.
+\end{enumerate}
+\indent Cảm biến gia tốc thường được thiết kế để đo gia tốc theo ba trục: X, Y và Z. Điều này giúp xác định chính xác chuyển động, tư thế hoặc vị trí của vật thể trong không gian.
+
 \subsubsection{Nguyên lý hoạt động}
-\subsubsubsection{Sử dụng hiệu ứng Piezoelectric}
+\subsubsubsection{Hiệu ứng điện dung:}
+\indent Cấu trúc lò xo - khối nặng - giảm xóc: Cấu trúc này chuyển đổi gia tốc của khung cảm biến thành sự dịch chuyển của khối nặng chứng minh, và phương pháp cảm biến điện dung được áp dụng để chuyển đổi sự dịch chuyển này thành tín hiệu điện tử tỷ lệ với gia tốc được áp dụng.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/168_Introduction_to_Capacitive_Acceleration_Sensors_Figure_3.jpeg}
+    \caption{Cấu trúc của một cảm biến gia tốc sử dụng phương pháp điện dung}
+    \label{fig:capacitive_sensor}
+\end{figure}
+\indent Phương pháp cảm biến điện dung: Có hai bản điện cực được gắn cố định vào khung cảm biến cùng với một điện cực di động được kết nối với khối lượng tham chiếu. Thiết kế này hình thành hai tụ điện biến thiên C1 và C2, như được hiển thị trong hình \ref{fig:capacitive_sensor}.
+
+\indent Khi khối lượng tham chiếu di chuyển theo một hướng dưới ảnh hưởng của gia tốc, điện dung giữa điện cực di động và một trong hai điện cực cố định tăng lên trong khi điện dung của tụ điện kia giảm xuống. Bằng cách đo đạc sự thay đổi điện dung của hai tụ điện trên, và kết hợp với khối lượng tham chiếu có sẳn ta có thể tính toán được gia tốc đầu vào.
+
+\subsubsubsection{Hiệu ứng áp điện (Piezoelectric):}
 \indent Hiệu ứng Piezoelectric là hiện tượng mà một số vật liệu nhất định có khả năng tạo ra điện tích khi chịu áp lực cơ học. Từ “Piezoelectric” bắt nguồn từ từ tiếng Hy Lạp “piezein”, có nghĩa là “ấn hoặc nén”, mô tả chính xác quá trình tạo ra điện năng thông qua áp lực.
 
 \indent Hiệu ứng này xảy ra ở mức độ vi mô, khi áp dụng một lực cơ học dẫn đến sự di chuyển của các điện tích dương và âm trong cấu trúc tinh thể của vật liệu. Sự dịch chuyển này tạo ra một cực điện và hình thành một điên áp đi qua vật liệu.
@@ -504,94 +592,63 @@ Ví dụ, các tinh thể titanate zirconate chì sẽ tạo ra dòng điện Pi
     \item \textbf{Thiết kế theo chế độ uốn:} thiết kế này sử dụng các tấm tinh thể có hình chữ nhật hoặc hình đĩa. Sự uốn cong của tinh thể có thể xảy ra do khối lượng của chính tinh thể đối lập với gia tốc hoặc để tăng cường sự uốn cong, trọng lượng bổ sung có thể được kẹp hoặc liên kết với tinh thể. Gia tốc kế ở chế độ uốn ít cứng hơn khi so sánh với thiết kế nén hoặc trượt, cung cấp cho chúng dải tần số giới hạn. Ngoài ra, do tinh thể phải chịu mức độ căng áp lực cao nên chúng dễ bị hỏng hơn các loại khác nếu bị sốc hoặc rung quá mức.
 \end{itemize}
 
-
-\subsubsubsection{Sử dụng phương pháp điện dung}
-\indent Cấu trúc lò xo-khối nặng-giảm xóc: Cấu trúc này chuyển đổi gia tốc của khung cảm biến thành sự dịch chuyển của khối nặng chứng minh, và phương pháp cảm biến điện dung được áp dụng để chuyển đổi sự dịch chuyển này thành tín hiệu điện tử tỷ lệ với gia tốc được áp dụng.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/168_Introduction_to_Capacitive_Acceleration_Sensors_Figure_3.jpeg}
-    \caption{Cấu trúc của một cảm biến gia tốc sử dụng phương pháp điện dung}
-    \label{fig:capacitive_sensor}
-\end{figure}
-\indent Phương pháp cảm biến điện dung: Có hai bản điện cực được gắn cố định vào khung cảm biến cùng với một điện cực di động được kết nối với khối lượng tham chiếu. Thiết kế này hình thành hai tụ điện biến thiên C1 và C2, như được hiển thị trong hình \ref{fig:capacitive_sensor}.
-
-\indent Khi khối lượng tham chiếu di chuyển theo một hướng dưới ảnh hưởng của gia tốc, điện dung giữa điện cực di động và một trong hai điện cực cố định tăng lên trong khi điện dung của tụ điện kia giảm xuống. Bằng cách đo đạc sự thay đổi điện dung của hai tụ điện trên, và kết hợp với khối lượng tham chiếu có sẳn ta có thể tính toán được gia tốc đầu vào.
-
 \subsubsection{Giới thiệu về module cảm biến ITG 3200}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/ITG3200.jpg}
+    \includegraphics[width=0.5\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/ITG3200.jpg}
     \caption{Cảm biến gia tốc góc ITG 3200}
     \label{fig:capacitive_sensor}
 \end{figure}
-Cảm biến gia tốc góc ITG-3200 là một loại cảm biến gia tốc góc (gyroscope) được sản xuất bởi InvenSense. Đây là một cảm biến quan trọng được sử dụng rộng rãi trong các ứng dụng đo lường và điều khiển chuyển động. Dưới đây là một số đặc điểm chính và thông tin cơ bản về ITG-3200:
-
-Đặc điểm chính
+\indent Module cảm biến ITG 3200 là một loại cảm biến con quay gia tốc 3 trục, sử dụng công nghệ MEMS để đo góc quay và vận tốc góc. Cảm biến này có khả năng cung cấp dữ liệu về các chuyển động xoay trên ba trục không gian X, Y và Z. ITG 3200 có độ chính xác cao và tốc độ đáp ứng nhanh, phù hợp với nhiều ứng dụng yêu cầu đo đạc chuyển động như điều khiển robot, máy bay không người lái (drone), hệ thống ổn định, và các thiết bị đo lường khác.
+\\
+\textbf{Các đặc điểm chính của ITG 3200:}
 \begin{itemize}
-\item \textbf{Trục đo}: ITG-3200 là cảm biến 3 trục, có khả năng đo gia tốc góc trên ba trục X, Y và Z.
-\item \textbf{Dải đo} (Range): Cảm biến này có thể đo gia tốc góc lên đến ±2000 độ/giây, phù hợp cho nhiều ứng dụng khác nhau từ điều khiển bay của máy bay không người lái đến các thiết bị chơi game.
- \item \textbf{Tốc độ lấy mẫu} (Sampling Rate): Cảm biến hỗ trợ tốc độ lấy mẫu lên đến 8 kHz, giúp thu thập dữ liệu nhanh và chính xác.
- \item \textbf{Giao tiếp}: ITG-3200 sử dụng giao tiếp I2C (Inter-Integrated Circuit), giúp dễ dàng kết nối với các vi điều khiển và các hệ thống nhúng khác.
-\item \textbf{Nguồn điện}: Cảm biến hoạt động với điện áp từ 2.1V đến 3.6V, và thường được cấp điện áp 3.3V.
-\item \textbf{Bộ lọc tích hợp}: Cảm biến này có tích hợp bộ lọc kỹ thuật số để giảm nhiễu và cải thiện độ chính xác của dữ liệu.
+\item \textbf{Cảm biến 3 trục:} Đo lường góc quay và vận tốc góc trên ba trục không gian.
+\item \textbf{Độ phân giải cao:} Cảm biến có thể cung cấp các giá trị đo chính xác với độ phân giải lên đến 14-bit.
+ \item \textbf{Tốc độ lấy mẫu:} Cảm biến hỗ trợ tốc độ lấy mẫu lên đến 8 kHz, giúp thu thập dữ liệu nhanh và chính xác.
+ \item \textbf{Giao tiếp I2C:} ITG 3200 sử dụng giao tiếp I2C để truyền tải dữ liệu, giúp dễ dàng kết nối với các vi điều khiển và hệ thống nhúng.
+\item \textbf{Nguồn cấp}: Được cấp nguồn từ 2.3V đến 3.4V, giúp tiết kiệm năng lượng trong các ứng dụng di động hoặc thiết bị nhúng.
+\item \textbf{Bộ lọc tích hợp} Cảm biến này có tích hợp bộ lọc kỹ thuật số để giảm nhiễu và cải thiện độ chính xác của dữ liệu.
 \end{itemize}
+\indent \textbf{Ứng dụng của ITG 3200:}
+\begin{itemize}
+\item \textbf{Điều khiển ổn định:} ITG 3200 được sử dụng trong các hệ thống ổn định để đo chuyển động quay, giúp duy trì sự cân bằng của các thiết bị như drone và robot.
+\item \textbf{Thiết bị đo lường:} Sử dụng trong các thiết bị đo đạc góc quay chính xác, chẳng hạn như thiết bị đeo thông minh và các hệ thống tự động.
+ \item \textbf{Các hệ thống điều khiển:} Được sử dụng trong các hệ thống điều khiển tự động, giúp phát hiện và xử lý chuyển động quay trong thời gian thực.
+\end{itemize}
+
 \subsection{Giới thiệu về module bluetooth HC05}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/hc05.jpg}
+    \includegraphics[width=0.5\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/hc05.jpg}
     \caption{module bluetooth HC-05}
     \label{fig:capacitive_sensor}
 \end{figure}
 
-HC-05 là thiết bị Bluetooth tốt nhất sử dụng giao thức truyền thông UART. HC-05 Bluetooth có nhiều tính năng khác biệt so với tất cả các thiết bị Bluetooth khác vì có nhiều chân và chức năng.
-
-Module thường sử dụng giao tiếp nối tiếp UART với các chân TX và RX ở tốc độ baund 9600. Có giao tiếp truyền dữ liệu hai chiều và có thể hoạt động như một slave và master.
-
-Module Bluetooth chỉ cung cấp khả năng giao tiếp trong khoảng cách ngắn do có giới hạn, hầu hết do đảm bảo tốc độ và tính bảo mật của nó.
-
-Mô tả sơ đồ chân
+\indent Module Bluetooth HC-05 là một mô-đun giao tiếp không dây sử dụng chuẩn Bluetooth 2.0, cho phép kết nối các thiết bị điện tử với nhau qua giao thức Bluetooth. Đây là một module phổ biến và dễ sử dụng trong các dự án điện tử và IoT (Internet of Things), giúp các thiết bị như vi điều khiển, cảm biến hoặc các thiết bị di động kết nối với nhau một cách thuận tiện.
+\\
+\textbf{Các đặc điểm chính của HC-05:}
 \begin{itemize}
-    
-
-\item \textbf{Chân VCC} Giống như mọi thiết bị khác, HC05 Modules cũng phụ thuộc vào nguồn điện để hoạt động và chân VCC cấp nguồn điện từ bên ngoài.
-
-\item \textbf{Chân GND} Chân nối đất module.
-
-\item \textbf{Chân TX} Chân truyền dữ liệu giao thức UART
-
-\item \textbf{Chân RX} Chân nhận dữ liệu trong giao tiếp UART.
-
-\item \textbf{Chân State} Báo trạng thái kết nối của Bluetooth.
-
-\item \textbf{Chân Enable/key C} là chân thay đổi chế độ giữa chế độ dữ liệu và chế độ dòng lệnh bằng cách cấp tín hiệu bên ngoài. Cấp logic cao sẽ chuyển sang chế độ dòng lệnh và trạng thái logic thấp sẽ chuyển sang chế độ dữ liệu. Chế độ thiết bị mặc định là chế độ dữ liệu.
-
-\item \textbf{Nút button} Các chế độ dữ liệu và lệnh có thể thay đổi thông qua một nút nhấn có trên module.
-
-\item \textbf{Đèn LED}: Đèn LED hiển thị trạng thái của Module HC-05.
-
+\item \textbf{Chế độ hoạt động:} HC-05 hỗ trợ hai chế độ hoạt động: Master (chủ) và Slave (phụ). Chế độ Master cho phép HC-05 kết nối với các thiết bị khác, trong khi chế độ Slave cho phép module kết nối với một thiết bị khác như điện thoại hoặc máy tính.
+\item \textbf{Giao tiếp Serial (UART):} HC-05 sử dụng giao tiếp UART (Universal Asynchronous Receiver/Transmitter) để trao đổi dữ liệu với các vi điều khiển và các thiết bị điện tử khác, giúp dễ dàng tích hợp vào các mạch điện tử.
+ \item \textbf{Khoảng cách truyền tín hiệu:} HC-05 có thể truyền tín hiệu Bluetooth trong phạm vi lên tới 10 mét, tùy thuộc vào môi trường và các yếu tố xung quanh.
+\item \textbf{Nguồn cấp}: Module hoạt động với nguồn cung cấp từ 3.3V đến 5V, tương thích với các hệ thống sử dụng vi điều khiển phổ biến như Arduino.
+\item \textbf{Tốc độ truyền dữ liệu:} HC-05 có tốc độ truyền dữ liệu lên đến 3 Mbps, cho phép truyền tải thông tin nhanh chóng và hiệu quả giữa các thiết bị.
 \end{itemize}
-
-\indent \textbf{Đặc tính Bluetooth HC-05 }
+\textbf{Ứng dụng của HC-05:}
 \begin{itemize}
-\item Module Bluetooth HC-05 cung cấp hai giao tiếp trong khoảng cách ngắn hơn với tốc độ nhanh.
-\item  Có chân enale cho phép chuyển đổi giữa chế độ dòng lệnh và dữ liệu.
-Module có giao thức UART dễ dàng giao tiếp với bất kỳ bộ vi điều khiển hoặc hệ thống nào.
-\item  Phạm vi giao tiếp lên đến 8 - 10 mét nhưng sẽ giảm xuống khi có vật cản.
-\item  Thiết bị sử dụng nguồn điện 5V.
- \item  Module có thể làm Master hoặc Slave.
-\item  Hỗ trợ tốc độ truyền:\\
-- 9600\\
-- 19200\\
-- 38400\\
-- 57600\\
-- 115200\\
-- 230400\\
-- 460800
+\item \textbf{Kết nối không dây:} HC-05 có thể được sử dụng trong các dự án yêu cầu kết nối không dây giữa các thiết bị như Arduino với điện thoại thông minh, máy tính hoặc các thiết bị khác hỗ trợ Bluetooth.
+\item \textbf{Điều khiển từ xa:} Module này được ứng dụng trong các hệ thống điều khiển từ xa, giúp người dùng điều khiển thiết bị điện tử thông qua ứng dụng di động hoặc máy tính.
+ \item \textbf{Hệ thống IoT:} HC-05 là một lựa chọn phổ biến trong các hệ thống IoT, nơi các thiết bị cần giao tiếp với nhau qua mạng Bluetooth để truyền dữ liệu hoặc điều khiển từ xa.
 \end{itemize}
 \subsection{Giới thiệu về ngôn ngữ ký hiệu}
-\indent Ngôn ngữ ký hiệu, còn được gọi là ngôn ngữ dấu hiệu hoặc thủ ngữ, là ngôn ngữ sử dụng các biểu hiện của bàn tay thay cho âm thanh của tiếng nói. Ngôn ngữ ký hiệu được người khiếm thính tạo ra nhằm giúp họ có thể giao tiếp với nhau trong cộng đồng của mình và tiếp thu tri thức của xã hội.
+\indent Ngôn ngữ ký hiệu là phương tiện giao tiếp chính thức của cộng đồng người khiếm thính, được sử dụng để biểu đạt ý tưởng và cảm xúc thông qua các cử chỉ tay và động tác cơ thể. Mỗi ngôn ngữ ký hiệu có cấu trúc ngữ pháp và từ vựng riêng, khác biệt với ngôn ngữ nói và thường được sử dụng bởi những người không thể nghe hoặc không thể nói.
 
-\indent Ở Việt Nam, ngôn ngữ ký hiệu đã được hình thành từ rất lâu. Tuy nhiên, do trước đây chưa có nhà khoa học nào tìm hiểu, nghiên cứu về nó nên người Việt Nam không nghĩ và đã không xem những dấu hiệu mà người điếc sử dụng là ngôn ngữ. Mãi đến năm 1996, một tiến sĩ ngôn ngữ học người Mỹ là James C. Woodward, người đã từng làm việc với William Stokoe tại trường đại học Gallaudet của Mỹ, đã sang Việt Nam thực hiện nghiên cứu về ngôn ngữ ký hiệu của cộng đồng người điếc ở Việt Nam2. Theo nghiên cứu của ông, ở Việt Nam hiện có ít nhất 3 ngôn ngữ ký hiệu phổ biến (được cộng đồng người điếc sử dụng nhiều nhất). Ông đã dùng tên của những địa danh này để đặt tên cho 3 ngôn ngữ ký hiệu đó: Ngôn ngữ ký hiệu Hà Nội, ngôn ngữ ký hiệu Hải Phòng, và ngôn ngữ ký hiệu Thành phố Hồ Chí Minh.
+\indent Ngôn ngữ ký hiệu không chỉ bao gồm các động tác tay mà còn sử dụng biểu cảm khuôn mặt, cử chỉ của các bộ phận cơ thể như mắt, đầu và cơ thể để truyền đạt thông điệp. Điều này giúp ngôn ngữ ký hiệu trở thành một hệ thống giao tiếp toàn diện, có thể biểu đạt đầy đủ các ý tưởng phức tạp như trong ngôn ngữ nói.
+
+\indent Ngôn ngữ ký hiệu ở Việt Nam đã được hình thành từ rất lâu. Nhưng do trước đây chưa có nhà khoa học nào tìm hiểu,nghiên cứu về nó nên người Việt Nam không nghĩ và đã không xem những dấu hiệu mà người điếc sử dụng là ngôn ngữ. Họ cho rằng đó chỉ là những điệu bộ khua tay của người điếc để cố gắng giao tiếp do thiếu ngôn ngữ. Mãi đến năm 1996, một tiến sĩ ngôn ngữ học người Mỹ James C. Woodward, người đã từng làm việc với William Stokoe tại trường đại học Gallaudet của Mỹ, đã sang Việt Nam thực hiện nghiên cứu về ngôn ngữ ký hiệu của cộng đồng người điếc ở Việt Nam. Theo nghiên cứu của ông, ở Việt Nam hiện có ít nhất 3 ngôn ngữ ký hiệu phổ biến (được cộng đồng người điếc sử dụng nhiều nhất). Ông đã dùng tên của những địa danh này để đặt tên cho 3 ngôn ngữ ký hiệu đó: Ngôn ngữ ký hiệu Hà Nội, ngôn ngữ ký hiệu Hải Phòng, và ngôn ngữ ký hiệu Thành phố Hồ Chí Minh.
+
+\indent Sau đó, đã có thêm những dự án ở Việt Nam:dự án Giáo dục hòa nhập cho trẻ điếc 1998-2001 (Viện Khoa học Giáo dục- tổ chức Pearl S. Buck, Int), dư án Giáo dục trung học và đại học cho người Điếc Việt Nam 2000 cho đến hiện tại (Sở GD-ĐT Đồng Nai và GS TS JAMES C. WOODWARD) để thực hiện việc thu thập lại những dấu hiệu của người điếc Việt Nam và tìm hiểu về ngữ pháp của ngôn ngữ này. Công việc này đã kích thích thêm nhiều nhà khoa học ở Việt Nam cũng bắt đầu tìm hiểu về ngữ pháp của ngôn ngữ ký hiệu Việt Nam.
 
 \indent Để một người có thể diễn đạt được ngôn ngữ ký hiệu đòi hỏi một hoặc nhiều yếu tố dưới đây:
 \begin{itemize}
@@ -603,15 +660,8 @@ Module có giao thức UART dễ dàng giao tiếp với bất kỳ bộ vi đi�
 \end{itemize}
 \begin{figure}[H]
     \centering
-    \includegraphics{Images/Theoretical basis/bangso.jpg}
-    \caption{Bảng chữ số của ngôn ngữ kí hiệu}
-    \label{fig:enter-label}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics{Images/Theoretical basis/bangchu.jpg}
-    \caption{Bảng chữ cái của ngôn ngữ ký hiệu}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Theoretical basis/bangsochu.jpg}
+    \caption{Bảng ngôn ngữ kí hiệu}
     \label{fig:enter-label}
 \end{figure}
 

@@ -1,6 +1,148 @@
 \section{Các phương pháp cải tiến}
-\subsection{Sliding Window}
-\subsection{Khắc phục vấn đề mất dữ liệu}
+\subsection{Cửa sổ trượt (Sliding Window)}
+
+Cửa sổ trượt là một kỹ thuật quan trọng trong việc xử lý dữ liệu chuỗi thời gian, đặc biệt khi làm việc với các mô hình học máy yêu cầu dữ liệu có cấu trúc dạng chuỗi (sequence). Kỹ thuật này giúp chia nhỏ dữ liệu lớn thành các chuỗi con với chiều dài cố định, giúp mô hình dễ dàng học được các đặc trưng từ các chuỗi dữ liệu liên tục.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Improved methods/SlidingWindowTechnique.png}
+    \caption{Kỹ thuật Sliding Window}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsubsection{Khái niệm về cửa sổ trượt}
+
+Cửa sổ trượt sử dụng một cửa sổ cố định để trượt qua dữ liệu chuỗi thời gian, tạo ra các phân đoạn nhỏ (windows) để mô hình học máy có thể xử lý. Mỗi cửa sổ trượt chứa một số mẫu nhất định, được gọi là \textit{sequence length}. Khi cửa sổ trượt di chuyển qua dữ liệu, các mẫu trong mỗi cửa sổ được sử dụng để huấn luyện mô hình.
+
+\begin{itemize}
+    \item \textbf{Sequence length:} Số lượng mẫu trong mỗi cửa sổ.
+    \item \textbf{Step size:} Số mẫu mà cửa sổ trượt di chuyển qua mỗi lần.
+\end{itemize}
+
+\subsubsection{Cách thức hoạt động của cửa sổ trượt}
+
+Cửa sổ trượt hoạt động theo cách chia dữ liệu thành các cửa sổ nhỏ, mỗi cửa sổ chứa một chuỗi thời gian dài một số bước thời gian xác định. Sau đó, cửa sổ này di chuyển qua các bước tiếp theo để tạo ra các mẫu huấn luyện liên tiếp.
+
+\begin{itemize}
+    \item Dữ liệu gốc có dạng chuỗi thời gian dài $(T)$.
+    \item Cửa sổ trượt có kích thước cố định (ví dụ: 240 bước thời gian).
+    \item Mỗi lần trượt, cửa sổ di chuyển qua một bước xác định (step size, ví dụ: 40 mẫu).
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Images/Improved methods/sliding-window-method.png}
+    \caption{Cách thức hoạt động của Sliding Window}
+    \label{fig:enter-label}
+\end{figure}
+
+\textbf{Ví dụ:}  
+Giả sử chúng ta có dữ liệu chuỗi thời gian dài 1000 mẫu và cửa sổ trượt có kích thước 240 mẫu. Cửa sổ trượt sẽ tạo ra các mẫu huấn luyện sau:
+\begin{itemize}
+    \item Cửa sổ đầu tiên chứa mẫu 1 đến mẫu 240.
+    \item Cửa sổ thứ hai chứa mẫu 41 đến mẫu 280 (di chuyển 40 mẫu).
+    \item Cửa sổ thứ ba chứa mẫu 81 đến mẫu 320, và cứ thế tiếp tục.
+\end{itemize}
+
+\subsubsection{Ứng dụng cửa sổ trượt trong dự đoán}
+
+Khi mô hình được huấn luyện xong, cửa sổ trượt sẽ được sử dụng để xử lý các dữ liệu đầu vào mới trong quá trình dự đoán, giúp mô hình nhận diện và dự đoán các cử chỉ ngôn ngữ ký hiệu một cách chính xác.
+
+\begin{itemize}
+    \item Dữ liệu đầu vào cho dự đoán sẽ được chia thành các cửa sổ thời gian với kích thước cố định, giống như trong quá trình huấn luyện.
+    \item Mỗi cửa sổ sẽ chứa một chuỗi dữ liệu mới từ các cảm biến, với chiều dài cửa sổ cố định (ví dụ: 240 bước thời gian).
+    \item Cửa sổ trượt di chuyển qua dữ liệu mới để tạo ra các mẫu cho mô hình dự đoán.
+\end{itemize}
+
+\textbf{Ví dụ:} Giả sử mô hình đã được huấn luyện và bây giờ cần dự đoán cho dữ liệu mới. Nếu cửa sổ trượt có kích thước 240 và bước trượt là 40 mẫu:
+\begin{itemize}
+    \item Cửa sổ đầu tiên chứa các mẫu từ 1 đến 240.
+    \item Cửa sổ thứ hai chứa mẫu từ 41 đến 280, và cứ thế tiếp tục.
+    \item Mỗi cửa sổ được đưa vào mô hình để dự đoán giá trị, sau đó mô hình sẽ trả về kết quả cho mỗi cửa sổ.
+\end{itemize}
+
+Dữ liệu được xử lý qua các cửa sổ trượt sẽ giúp mô hình dự đoán các cử chỉ theo từng chuỗi thời gian liên tiếp, từ đó tạo ra kết quả chính xác hơn và liên tục, đặc biệt khi dữ liệu mới được thu thập từ các cảm biến.
+
+\subsubsection{Lợi ích của cửa sổ trượt trong dự đoán}
+
+\begin{itemize}
+    \item \textbf{Dự đoán liên tục:} Cửa sổ trượt giúp mô hình duy trì khả năng dự đoán liên tục cho dữ liệu chuỗi thời gian mới, không bị gián đoạn.
+    \item \textbf{Giữ lại thông tin trong các chuỗi thời gian dài:} Mỗi cửa sổ giúp mô hình nắm bắt thông tin từ các bước thời gian liên tiếp, từ đó cải thiện độ chính xác của dự đoán.
+    \item \textbf{Xử lý dữ liệu theo thời gian thực:} Cửa sổ trượt cho phép mô hình xử lý dữ liệu theo dạng chuỗi thời gian liên tục, giúp mô hình thích ứng với các thay đổi trong dữ liệu theo thời gian.
+\end{itemize}
+
+\subsection{Khôi phục dữ liệu bị mất}
+
+Trong quá trình truyền dữ liệu qua Bluetooth, đặc biệt với các tín hiệu liên tục như từ cảm biến, có thể xảy ra hiện tượng mất gói dữ liệu. Điều này ảnh hưởng đến chất lượng và tính liên tục của thông tin đầu vào cho mô hình học máy. Dưới đây là các phương pháp xử lý và khôi phục dữ liệu bị mất trong quá trình truyền.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth,height=\textheight,keepaspectratio]{Images/Improved methods/bluetooth.png}
+    \caption{Truyền dữ liệu bằng bluetooth}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsubsection{Nguyên nhân gây mất dữ liệu}
+\begin{itemize}
+    \item \textbf{Giới hạn băng thông của Bluetooth:} Khi tốc độ truyền vượt quá khả năng xử lý của kênh truyền, một số gói dữ liệu có thể bị bỏ qua.
+    \item \textbf{Nhiễu tín hiệu:} Các tín hiệu không mong muốn trong môi trường có thể gây lỗi truyền dữ liệu.
+    \item \textbf{Khoảng cách truyền:} Khoảng cách giữa thiết bị gửi và nhận quá xa dẫn đến tín hiệu yếu, gây mất dữ liệu.
+    \item \textbf{Quá tải bộ đệm:} Dữ liệu được gửi quá nhanh khiến bộ đệm của thiết bị nhận không xử lý kịp thời.
+\end{itemize}
+
+\subsubsection{Phương pháp phát hiện dữ liệu bị mất}
+\begin{itemize}
+    \item \textbf{Kiểm tra tính liên tục của chuỗi dữ liệu:}  
+    Mỗi gói dữ liệu được đánh số tuần tự (\textit{sequence number}). Khi phát hiện số thứ tự không liên tiếp, xác định đã có dữ liệu bị mất.
+    
+    \item \textbf{Kiểm tra tính đầy đủ của gói dữ liệu:}  
+    Dựa vào định dạng dữ liệu cố định, nếu số lượng giá trị trong gói không khớp với định dạng chuẩn (ví dụ: thiếu 7 giá trị từ cảm biến), xác định gói bị lỗi.
+\end{itemize}
+
+\subsubsection{Phương pháp khôi phục dữ liệu bị mất}
+\begin{enumerate}
+    \item \textbf{Nội suy tuyến tính (Linear Interpolation):}
+    \begin{itemize}
+        \item Áp dụng khi mất một số ít gói dữ liệu liên tiếp.
+        \item Dựa vào giá trị của các gói trước và sau gói bị mất để tính toán giá trị trung bình hoặc ước lượng dữ liệu:
+        \[
+        x_{\text{khôi phục}} = x_{\text{trước}} + \frac{x_{\text{sau}} - x_{\text{trước}}}{\Delta t}
+        \]
+        \item Phương pháp này đảm bảo tín hiệu khôi phục mượt mà và duy trì tính liên tục.
+    \end{itemize}
+    
+    \item \textbf{Sao chép giá trị gần nhất (Forward/Backward Filling):}
+    \begin{itemize}
+        \item Áp dụng cho các trường hợp mất dữ liệu ngắn.
+        \item Giá trị bị mất được thay thế bằng giá trị gần nhất (trước hoặc sau gói bị mất).
+        \item Phương pháp này đơn giản và hiệu quả khi dữ liệu thay đổi ít theo thời gian.
+    \end{itemize}
+    
+    \item \textbf{Bổ sung giá trị mặc định:}
+    \begin{itemize}
+        \item Áp dụng khi không thể nội suy do mất nhiều gói liên tiếp hoặc không có dữ liệu tham chiếu.
+        \item Giá trị bị mất được thay bằng giá trị mặc định (ví dụ: 0 hoặc giá trị trung bình của chuỗi).
+    \end{itemize}
+    
+    \item \textbf{Yêu cầu gửi lại dữ liệu:}
+    \begin{itemize}
+        \item Trong trường hợp quan trọng, thiết bị nhận có thể gửi tín hiệu yêu cầu thiết bị gửi phát lại gói bị mất.
+        \item Phương pháp này hiệu quả nhưng tăng độ trễ trong hệ thống.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Tối ưu hóa giảm thiểu mất dữ liệu}
+\begin{itemize}
+    \item \textbf{Điều chỉnh tốc độ truyền:} Giảm tốc độ truyền để phù hợp với khả năng xử lý của thiết bị nhận.
+    \item \textbf{Sử dụng nén dữ liệu:} Nén tín hiệu để giảm kích thước gói, tăng tốc độ truyền.
+    \item \textbf{Giảm nhiễu tín hiệu:} Sử dụng các kênh tần số khác hoặc cải thiện điều kiện môi trường truyền dữ liệu.
+    \item \textbf{Tăng độ nhạy Bluetooth:} Đảm bảo khoảng cách giữa thiết bị gửi và nhận nằm trong giới hạn hỗ trợ của Bluetooth.
+\end{itemize}
+
+
+
+
+
 \subsection{Cải thiện chất lượng mô hình}
 \subsubsection{Mô hình với Deep Convolution và Self-Attention}
 
